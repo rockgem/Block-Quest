@@ -1,0 +1,527 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/bg_day.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/scene.png" type="Texture" id=2]
+[ext_resource path="res://actors/Slot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/time_scores.png" type="Texture" id=4]
+[ext_resource path="res://scripts/UI.gd" type="Script" id=5]
+[ext_resource path="res://scenes/CenterHolder.gd" type="Script" id=6]
+[ext_resource path="res://assets/time.png" type="Texture" id=7]
+[ext_resource path="res://assets/font64.tres" type="DynamicFont" id=8]
+[ext_resource path="res://assets/total_poins.png" type="Texture" id=9]
+[ext_resource path="res://reso/styles/panel_small_1.tres" type="StyleBox" id=10]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 168, 52 )
+margin_left = 34.0
+margin_right = 38.0
+margin_top = 33.0
+margin_bottom = 28.0
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="Back" type="CanvasLayer" parent="."]
+layer = -99
+
+[node name="Background" type="TextureRect" parent="Back"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -265.0
+margin_top = -2284.0
+margin_right = 1899.0
+margin_bottom = 2284.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Area" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -374.0
+margin_top = -519.0
+margin_right = 374.0
+margin_bottom = 520.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Time" type="TextureRect" parent="."]
+margin_left = 10.0
+margin_top = 93.0
+margin_right = 257.0
+margin_bottom = 195.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="TimeLabel" type="Label" parent="Time"]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -18.0
+margin_top = -62.0
+margin_right = 217.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 8 )
+custom_styles/normal = ExtResource( 10 )
+text = "10:00"
+
+[node name="Points" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 13.0
+margin_top = -417.0
+margin_right = 426.0
+margin_bottom = -239.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="PointsLabel" type="Label" parent="Points"]
+unique_name_in_owner = true
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -1.0
+margin_top = -62.0
+margin_right = 276.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 8 )
+custom_styles/normal = ExtResource( 10 )
+text = "99,999"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -760.0
+margin_right = 360.0
+margin_bottom = 760.0
+
+[node name="Slots" type="GridContainer" parent="CenterContainer"]
+margin_left = 26.0
+margin_top = 426.0
+margin_right = 694.0
+margin_bottom = 1094.0
+columns = 8
+
+[node name="Slot" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_right = 80.0
+margin_bottom = 80.0
+
+[node name="Slot2" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_right = 164.0
+margin_bottom = 80.0
+
+[node name="Slot3" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_right = 248.0
+margin_bottom = 80.0
+
+[node name="Slot4" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 252.0
+margin_right = 332.0
+margin_bottom = 80.0
+
+[node name="Slot5" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 336.0
+margin_right = 416.0
+margin_bottom = 80.0
+
+[node name="Slot6" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 420.0
+margin_right = 500.0
+margin_bottom = 80.0
+
+[node name="Slot7" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 504.0
+margin_right = 584.0
+margin_bottom = 80.0
+
+[node name="Slot8" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 588.0
+margin_right = 668.0
+margin_bottom = 80.0
+
+[node name="Slot9" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_top = 84.0
+margin_right = 80.0
+margin_bottom = 164.0
+
+[node name="Slot10" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 84.0
+margin_right = 164.0
+margin_bottom = 164.0
+
+[node name="Slot11" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_top = 84.0
+margin_right = 248.0
+margin_bottom = 164.0
+
+[node name="Slot12" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 252.0
+margin_top = 84.0
+margin_right = 332.0
+margin_bottom = 164.0
+
+[node name="Slot13" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 336.0
+margin_top = 84.0
+margin_right = 416.0
+margin_bottom = 164.0
+
+[node name="Slot14" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 420.0
+margin_top = 84.0
+margin_right = 500.0
+margin_bottom = 164.0
+
+[node name="Slot15" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 504.0
+margin_top = 84.0
+margin_right = 584.0
+margin_bottom = 164.0
+
+[node name="Slot16" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 588.0
+margin_top = 84.0
+margin_right = 668.0
+margin_bottom = 164.0
+
+[node name="Slot17" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_top = 168.0
+margin_right = 80.0
+margin_bottom = 248.0
+
+[node name="Slot18" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 168.0
+margin_right = 164.0
+margin_bottom = 248.0
+
+[node name="Slot19" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_top = 168.0
+margin_right = 248.0
+margin_bottom = 248.0
+
+[node name="Slot20" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 252.0
+margin_top = 168.0
+margin_right = 332.0
+margin_bottom = 248.0
+
+[node name="Slot21" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 336.0
+margin_top = 168.0
+margin_right = 416.0
+margin_bottom = 248.0
+
+[node name="Slot22" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 420.0
+margin_top = 168.0
+margin_right = 500.0
+margin_bottom = 248.0
+
+[node name="Slot23" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 504.0
+margin_top = 168.0
+margin_right = 584.0
+margin_bottom = 248.0
+
+[node name="Slot24" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 588.0
+margin_top = 168.0
+margin_right = 668.0
+margin_bottom = 248.0
+
+[node name="Slot25" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_top = 252.0
+margin_right = 80.0
+margin_bottom = 332.0
+
+[node name="Slot26" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 252.0
+margin_right = 164.0
+margin_bottom = 332.0
+
+[node name="Slot27" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_top = 252.0
+margin_right = 248.0
+margin_bottom = 332.0
+
+[node name="Slot28" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 252.0
+margin_top = 252.0
+margin_right = 332.0
+margin_bottom = 332.0
+
+[node name="Slot29" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 336.0
+margin_top = 252.0
+margin_right = 416.0
+margin_bottom = 332.0
+
+[node name="Slot30" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 420.0
+margin_top = 252.0
+margin_right = 500.0
+margin_bottom = 332.0
+
+[node name="Slot31" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 504.0
+margin_top = 252.0
+margin_right = 584.0
+margin_bottom = 332.0
+
+[node name="Slot32" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 588.0
+margin_top = 252.0
+margin_right = 668.0
+margin_bottom = 332.0
+
+[node name="Slot33" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_top = 336.0
+margin_right = 80.0
+margin_bottom = 416.0
+
+[node name="Slot34" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 336.0
+margin_right = 164.0
+margin_bottom = 416.0
+
+[node name="Slot35" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_top = 336.0
+margin_right = 248.0
+margin_bottom = 416.0
+
+[node name="Slot36" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 252.0
+margin_top = 336.0
+margin_right = 332.0
+margin_bottom = 416.0
+
+[node name="Slot37" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 336.0
+margin_top = 336.0
+margin_right = 416.0
+margin_bottom = 416.0
+
+[node name="Slot38" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 420.0
+margin_top = 336.0
+margin_right = 500.0
+margin_bottom = 416.0
+
+[node name="Slot39" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 504.0
+margin_top = 336.0
+margin_right = 584.0
+margin_bottom = 416.0
+
+[node name="Slot40" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 588.0
+margin_top = 336.0
+margin_right = 668.0
+margin_bottom = 416.0
+
+[node name="Slot41" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_top = 420.0
+margin_right = 80.0
+margin_bottom = 500.0
+
+[node name="Slot42" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 420.0
+margin_right = 164.0
+margin_bottom = 500.0
+
+[node name="Slot43" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_top = 420.0
+margin_right = 248.0
+margin_bottom = 500.0
+
+[node name="Slot44" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 252.0
+margin_top = 420.0
+margin_right = 332.0
+margin_bottom = 500.0
+
+[node name="Slot45" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 336.0
+margin_top = 420.0
+margin_right = 416.0
+margin_bottom = 500.0
+
+[node name="Slot46" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 420.0
+margin_top = 420.0
+margin_right = 500.0
+margin_bottom = 500.0
+
+[node name="Slot47" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 504.0
+margin_top = 420.0
+margin_right = 584.0
+margin_bottom = 500.0
+
+[node name="Slot48" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 588.0
+margin_top = 420.0
+margin_right = 668.0
+margin_bottom = 500.0
+
+[node name="Slot49" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_top = 504.0
+margin_right = 80.0
+margin_bottom = 584.0
+
+[node name="Slot50" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 504.0
+margin_right = 164.0
+margin_bottom = 584.0
+
+[node name="Slot51" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_top = 504.0
+margin_right = 248.0
+margin_bottom = 584.0
+
+[node name="Slot52" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 252.0
+margin_top = 504.0
+margin_right = 332.0
+margin_bottom = 584.0
+
+[node name="Slot53" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 336.0
+margin_top = 504.0
+margin_right = 416.0
+margin_bottom = 584.0
+
+[node name="Slot54" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 420.0
+margin_top = 504.0
+margin_right = 500.0
+margin_bottom = 584.0
+
+[node name="Slot55" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 504.0
+margin_top = 504.0
+margin_right = 584.0
+margin_bottom = 584.0
+
+[node name="Slot56" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 588.0
+margin_top = 504.0
+margin_right = 668.0
+margin_bottom = 584.0
+
+[node name="Slot57" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_top = 588.0
+margin_right = 80.0
+margin_bottom = 668.0
+
+[node name="Slot58" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 84.0
+margin_top = 588.0
+margin_right = 164.0
+margin_bottom = 668.0
+
+[node name="Slot59" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 168.0
+margin_top = 588.0
+margin_right = 248.0
+margin_bottom = 668.0
+
+[node name="Slot60" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 252.0
+margin_top = 588.0
+margin_right = 332.0
+margin_bottom = 668.0
+
+[node name="Slot61" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 336.0
+margin_top = 588.0
+margin_right = 416.0
+margin_bottom = 668.0
+
+[node name="Slot62" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 420.0
+margin_top = 588.0
+margin_right = 500.0
+margin_bottom = 668.0
+
+[node name="Slot63" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 504.0
+margin_top = 588.0
+margin_right = 584.0
+margin_bottom = 668.0
+
+[node name="Slot64" parent="CenterContainer/Slots" instance=ExtResource( 3 )]
+margin_left = 588.0
+margin_top = 588.0
+margin_right = 668.0
+margin_bottom = 668.0
+
+[node name="Panel" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 13.0
+margin_top = -225.0
+margin_right = -8.0
+margin_bottom = -23.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="BlocksHolder" type="HBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/BlocksHolder"]
+margin_right = 222.0
+margin_bottom = 202.0
+size_flags_horizontal = 3
+script = ExtResource( 6 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="Panel/BlocksHolder"]
+margin_left = 238.0
+margin_right = 460.0
+margin_bottom = 202.0
+size_flags_horizontal = 3
+script = ExtResource( 6 )
+
+[node name="CenterContainer3" type="CenterContainer" parent="Panel/BlocksHolder"]
+margin_left = 476.0
+margin_right = 699.0
+margin_bottom = 202.0
+size_flags_horizontal = 3
+script = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

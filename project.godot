@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="Block Quest"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/Menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Bgm="*res://sounds/bgm/BGM.tscn"
 
 [display]
 

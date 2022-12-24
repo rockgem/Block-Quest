@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/periwinkle.mp3-3a36ce79ee72dde5ab17c302e9c754fd.mp3str"
+
+[deps]
+
+source_file="res://sounds/bgm/periwinkle.mp3"
+dest_files=[ "res://.import/periwinkle.mp3-3a36ce79ee72dde5ab17c302e9c754fd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

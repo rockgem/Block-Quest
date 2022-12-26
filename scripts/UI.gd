@@ -100,6 +100,7 @@ func check_grid():
 			for slot in line:
 				slot.clear_slot()
 			score += 100
+			ManagerGame.player_data['coins'] += 100
 	
 	for line in vert_slots:
 		var b = true
@@ -115,9 +116,14 @@ func check_grid():
 			for slot in line:
 				slot.clear_slot()
 			score += 100
+			ManagerGame.player_data['coins'] += 100
 
 
 func check_grid_virtual():
+	
+	var lines_ok = []
+	
+	
 	for line in hor_slots:
 		var b = true
 		
@@ -127,11 +133,13 @@ func check_grid_virtual():
 				break
 		
 		if b == false:
-			for slot in line:
-				slot.highlight_slot(false)
+			pass
+#			for slot in line:
+#				slot.highlight_slot(false)
 		else:
-			for slot in line:
-				slot.highlight_slot()
+			lines_ok.append(line)
+#			for slot in line:
+#				slot.highlight_slot()
 	
 	for line in vert_slots:
 		var b = true
@@ -142,11 +150,13 @@ func check_grid_virtual():
 				break
 		
 		if b == false:
-			for slot in line:
-				slot.highlight_slot(false)
+			pass
+#			for slot in line:
+#				slot.highlight_slot(false)
 		else:
-			for slot in line:
-				slot.highlight_slot()
+			lines_ok.append(line)
+#			for slot in line:
+#				slot.highlight_slot()
 
 
 func on_block_delete():

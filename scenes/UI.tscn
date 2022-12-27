@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/bg_day.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/scene.png" type="Texture" id=2]
 [ext_resource path="res://actors/Slot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/time_scores.png" type="Texture" id=4]
 [ext_resource path="res://scripts/UI.gd" type="Script" id=5]
+[ext_resource path="res://assets/homeBtn.png" type="Texture" id=6]
 [ext_resource path="res://assets/time.png" type="Texture" id=7]
 [ext_resource path="res://assets/font64.tres" type="DynamicFont" id=8]
 [ext_resource path="res://assets/total_poins.png" type="Texture" id=9]
@@ -36,6 +37,20 @@ margin_bottom = 2284.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
+
+[node name="Home" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -131.0
+margin_top = 97.0
+margin_right = -41.0
+margin_bottom = 187.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+texture_focused = ExtResource( 6 )
+expand = true
+stretch_mode = 5
 
 [node name="Area" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -107,6 +122,7 @@ margin_left = -360.0
 margin_top = -760.0
 margin_right = 360.0
 margin_bottom = 760.0
+mouse_filter = 2
 
 [node name="Slots" type="GridContainer" parent="CenterContainer"]
 margin_left = 26.0
@@ -520,4 +536,5 @@ size_flags_horizontal = 3
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="pressed" from="Home" to="." method="_on_Home_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

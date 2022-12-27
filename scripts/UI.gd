@@ -20,6 +20,7 @@ var score: int = 0
 
 
 func _ready():
+	_on_Timer_timeout()
 	randomize()
 	
 	for child in $Panel/BlocksHolder.get_children():
@@ -69,8 +70,9 @@ func _ready():
 
 func _physics_process(delta):
 	get_node('%PointsLabel').text = str(score)
+	
 
-
+# generates 3 new random blocks
 func generate_blocks():
 	var count = 0
 	for child in $Panel/BlocksHolder.get_children():
@@ -160,6 +162,7 @@ func check_grid_virtual():
 
 
 func on_block_delete():
+	$"/root/Sfx".get_node("Pop2").play()
 	check_grid()
 	
 	var count = 0
@@ -176,3 +179,8 @@ func on_block_delete():
 
 func _on_Timer_timeout():
 	time_elapse_secs += 1
+	$Time/TimeLabel.text = ManagerGame.secs_to_mins(time_elapse_secs)
+
+
+func _on_Home_pressed():
+	get_tree().change_scene("res://scenes/Menu.tscn")

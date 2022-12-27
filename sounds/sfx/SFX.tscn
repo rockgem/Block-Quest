@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://sounds/sfx/Pop1.wav" type="AudioStream" id=1]
 [ext_resource path="res://sounds/sfx/Pop2.wav" type="AudioStream" id=2]
 [ext_resource path="res://sounds/sfx/Menu8.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/sfx/Menu_Sound_Error.wav" type="AudioStream" id=4]
 
 [node name="SFX" type="Node"]
 
@@ -14,3 +15,6 @@ stream = ExtResource( 2 )
 
 [node name="Click1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="Error" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

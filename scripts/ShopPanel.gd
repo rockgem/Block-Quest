@@ -13,6 +13,7 @@ func on_box_clicked(price: int, ids: Array):
 	if ManagerGame.player_data['coins'] >= price:
 		var heroes_data = {}
 		var h = {}
+		
 		var f = File.new()
 		f.open('res://reso/heroes/heroes.json', f.READ)
 		h = parse_json(f.get_as_text())

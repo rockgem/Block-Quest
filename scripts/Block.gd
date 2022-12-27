@@ -63,8 +63,8 @@ func _on_Block_gui_input(event):
 			emit_signal("block_deleted")
 			queue_free()
 		else:
-#			rect_position = Vector2.ZERO
 			# puts the block to the center of original position
 			get_parent().queue_sort()
+			$"/root/Sfx".get_node('Error').play()
 			# -------------------------------------------------
 			print('one or more piece on an occupied slot return block')

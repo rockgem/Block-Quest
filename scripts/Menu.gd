@@ -30,6 +30,19 @@ func _on_Shop_pressed():
 	$"/root/Sfx".get_node('Click1').play()
 
 
+func _on_Roster_pressed():
+	$RosterPanel.show()
+	$"/root/Sfx".get_node('Click1').play()
+
+
 func _on_CloseShop_pressed():
 	$ShopPanel.hide()
 	$"/root/Sfx".get_node('Click1').play()
+
+
+func _on_CloseRoster_pressed():
+	$RosterPanel.hide()
+	$"/root/Sfx".get_node('Click1').play()
+
+
+

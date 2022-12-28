@@ -2,6 +2,10 @@ extends Node
 
 
 signal coins_changed
+signal line_deleted
+
+signal block_drag
+signal block_release
 
 
 const SAVE_PATH = 'user://data.json'
@@ -9,10 +13,25 @@ const SAVE_PATH = 'user://data.json'
 
 var player_data = {
 	"coins": 0,
-	"roster": []
+	"roster": {}
 }
 
+var tiers = {
+	1: 'Common',
+	2: 'Rare',
+	3: 'Mythic',
+}
 
+var speech = [
+	'Nice! great job.',
+	'Keep it going!',
+	'Keep them poppin',
+	'Great!',
+	'Awesome'
+]
+
+
+var is_dragging_block = false
 
 
 func _ready():

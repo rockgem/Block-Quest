@@ -53,9 +53,11 @@ func check_pieces_for_available():
 func _on_Block_gui_input(event):
 	if event is InputEventScreenDrag and is_dragging == false:
 		is_dragging = true
+		ManagerGame.emit_signal("block_drag")
 	
 	if event is InputEventScreenTouch and !event.pressed and is_dragging:
 		is_dragging = false
+		ManagerGame.emit_signal("block_release")
 		
 		if check_pieces():
 			set_process(false)

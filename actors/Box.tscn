@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/font48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/bag.png" type="Texture" id=2]
+[ext_resource path="res://assets/stone_yellow.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Box.gd" type="Script" id=4]
+
+[node name="Box" type="TextureButton"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 200, 200 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 4 )
+
+[node name="Price" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -19.0
+margin_top = 71.0
+margin_right = 62.0
+margin_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "400"
+
+[node name="TextureRect" type="TextureRect" parent="Price"]
+margin_left = -76.0
+margin_top = -13.0
+margin_right = 5.0
+margin_bottom = 68.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[connection signal="pressed" from="." to="." method="_on_Box_pressed"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/bg_day.jpg" type="Texture" id=1]
-[ext_resource path="res://Box.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/Box.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/font64.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=4]
 [ext_resource path="res://assets/soundOnBtn.png" type="Texture" id=5]
@@ -14,6 +14,8 @@
 [ext_resource path="res://assets/palms.png" type="Texture" id=12]
 [ext_resource path="res://assets/stone_1.png" type="Texture" id=13]
 [ext_resource path="res://scripts/ShopPanel.gd" type="Script" id=14]
+[ext_resource path="res://actors/Card.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scripts/RosterPanel.gd" type="Script" id=16]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -219,7 +221,7 @@ margin_bottom = -245.0
 margin_right = 205.0
 margin_bottom = 324.0
 price = 1000
-heroes_inside = [ "hero1", "hero2" ]
+heroes_inside = [ "hero1", "hero2", "hero3" ]
 
 [node name="Box2" parent="ShopPanel/Boxes" instance=ExtResource( 2 )]
 self_modulate = Color( 1, 0.909804, 0.419608, 1 )
@@ -227,7 +229,7 @@ margin_left = 209.0
 margin_right = 414.0
 margin_bottom = 324.0
 price = 5000
-heroes_inside = [ "hero3", "hero4" ]
+heroes_inside = [ "hero4", "hero5", "hero1", "hero9" ]
 
 [node name="Box3" parent="ShopPanel/Boxes" instance=ExtResource( 2 )]
 self_modulate = Color( 0.494118, 1, 1, 1 )
@@ -235,7 +237,7 @@ margin_left = 418.0
 margin_right = 624.0
 margin_bottom = 324.0
 price = 10000
-heroes_inside = [ "hero5" ]
+heroes_inside = [ "hero5", "hero6", "hero7", "hero1", "hero8" ]
 
 [node name="CloseShop" type="Button" parent="ShopPanel"]
 anchor_left = 0.5
@@ -253,7 +255,111 @@ custom_styles/focus = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
 text = "Close"
 
+[node name="CardShowerControl" type="Control" parent="ShopPanel"]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="ShopPanel/CardShowerControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -334.0
+margin_top = -367.5
+margin_right = 334.0
+margin_bottom = 609.5
+custom_styles/panel = ExtResource( 11 )
+
+[node name="CardShower" type="CenterContainer" parent="ShopPanel/CardShowerControl/Panel"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 0.764
+margin_top = 18.0
+margin_bottom = 17.572
+mouse_filter = 2
+
+[node name="Card" parent="ShopPanel/CardShowerControl/Panel/CardShower" instance=ExtResource( 15 )]
+unique_name_in_owner = true
+margin_left = 70.0
+margin_right = 597.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CloseCard" type="Button" parent="ShopPanel/CardShowerControl/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -203.0
+margin_top = -180.0
+margin_right = 203.0
+margin_bottom = -45.0
+custom_fonts/font = ExtResource( 3 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
+text = "Close"
+
+[node name="RosterPanel" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 27.0
+margin_bottom = -5.0
+custom_styles/panel = ExtResource( 11 )
+script = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="RosterPanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -248.0
+margin_top = -25.0
+margin_right = 248.0
+margin_bottom = 93.0
+custom_fonts/font = ExtResource( 3 )
+custom_styles/normal = ExtResource( 11 )
+text = "Roster"
+align = 1
+
+[node name="CloseRoster" type="Button" parent="RosterPanel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -203.0
+margin_top = -180.0
+margin_right = 203.0
+margin_bottom = -45.0
+custom_fonts/font = ExtResource( 3 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
+text = "Close"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="RosterPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 171.0
+margin_right = -32.0
+margin_bottom = -265.0
+
+[node name="List" type="HFlowContainer" parent="RosterPanel/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 656.0
+margin_bottom = 1052.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Roster" to="." method="_on_Roster_pressed"]
 [connection signal="pressed" from="VBoxContainer/Shop" to="." method="_on_Shop_pressed"]
 [connection signal="toggled" from="HBoxContainer/Sound" to="." method="_on_Sound_toggled"]
+[connection signal="hide" from="ShopPanel" to="ShopPanel" method="_on_ShopPanel_hide"]
 [connection signal="pressed" from="ShopPanel/CloseShop" to="." method="_on_CloseShop_pressed"]
+[connection signal="pressed" from="ShopPanel/CardShowerControl/Panel/CloseCard" to="ShopPanel" method="_on_CloseCard_pressed"]
+[connection signal="pressed" from="RosterPanel/CloseRoster" to="." method="_on_CloseRoster_pressed"]

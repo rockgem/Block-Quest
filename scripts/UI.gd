@@ -19,7 +19,11 @@ var time_elapse_secs: int = 0
 var score: int = 0
 
 
+var virtual_lines_ref = []
+
 func _ready():
+	ManagerGame.connect("line_deleted", self, 'on_line_deleted')
+	
 	_on_Timer_timeout()
 	randomize()
 	
@@ -68,9 +72,26 @@ func _ready():
 #	check_grid_virtual()
 
 
+func _process(delta):
+	check_grid_virtual()
+
+
 func _physics_process(delta):
 	get_node('%PointsLabel').text = str(score)
+
+
+func pop_dialog(message: String = ''):
+	if message == '':
+		ManagerGame.speech.shuffle()
+		message = ManagerGame.speech[0]
 	
+	var tween = get_tree().create_tween()
+	tween.tween_property($Dialog, 'rect_position:x', 25.0, 0.3).set_trans(Tween.TRANS_BOUNCE)
+	
+	$Dialog/Label.percent_visible = 0.0
+	$Dialog/Label.text = message
+	$Dialog/DialogTimer.start()
+
 
 # generates 3 new random blocks
 func generate_blocks():
@@ -79,6 +100,7 @@ func generate_blocks():
 		var rand = randi() % 5
 		
 		var block = load(blocks[rand]).instance()
+#		var block = load(blocks[0]).instance()
 		child.add_child(block)
 		block.connect('block_deleted', self, 'on_block_delete')
 		
@@ -88,6 +110,13 @@ func generate_blocks():
 # this function is responsible for checking each lines
 # and if an entire line has a piece delete that whole line
 func check_grid():
+	
+	# this stores the lines that are eligible for deletion
+	# we store them first so that we can delete from both vertical
+	# and horizontal when necessary
+	var lines_ok = []
+	# --------------------------------------------------------
+	
 	for line in hor_slots:
 		var b = true
 		
@@ -99,10 +128,7 @@ func check_grid():
 		if b == false:
 			pass
 		else:
-			for slot in line:
-				slot.clear_slot()
-			score += 100
-			ManagerGame.player_data['coins'] += 100
+			lines_ok.append(line)
 	
 	for line in vert_slots:
 		var b = true
@@ -115,16 +141,20 @@ func check_grid():
 		if b == false:
 			pass
 		else:
+			lines_ok.append(line)
+	
+	if lines_ok.empty() == false:
+		for line in lines_ok:
 			for slot in line:
 				slot.clear_slot()
-			score += 100
-			ManagerGame.player_data['coins'] += 100
+		
+		ManagerGame.emit_signal("line_deleted")
+		pop_dialog()
 
 
 func check_grid_virtual():
-	
-	var lines_ok = []
-	
+	for slot in slots:
+		slot.highlight_slot(false)
 	
 	for line in hor_slots:
 		var b = true
@@ -134,14 +164,11 @@ func check_grid_virtual():
 				b = false
 				break
 		
-		if b == false:
-			pass
-#			for slot in line:
-#				slot.highlight_slot(false)
+		if b:
+			if virtual_lines_ref.has(line) == false:
+				virtual_lines_ref.append(line)
 		else:
-			lines_ok.append(line)
-#			for slot in line:
-#				slot.highlight_slot()
+			virtual_lines_ref.erase(line)
 	
 	for line in vert_slots:
 		var b = true
@@ -151,17 +178,24 @@ func check_grid_virtual():
 				b = false
 				break
 		
-		if b == false:
-			pass
-#			for slot in line:
-#				slot.highlight_slot(false)
+		if b:
+			if virtual_lines_ref.has(line) == false:
+				virtual_lines_ref.append(line)
 		else:
-			lines_ok.append(line)
-#			for slot in line:
-#				slot.highlight_slot()
+			virtual_lines_ref.erase(line)
+	
+	if virtual_lines_ref.empty() == false:
+		for line in virtual_lines_ref:
+			for slot in line:
+				slot.highlight_slot()
 
 
 func on_block_delete():
+	virtual_lines_ref.clear()
+	
+	for child in slots:
+		child.change_bg_to_default()
+	
 	$"/root/Sfx".get_node("Pop2").play()
 	check_grid()
 	
@@ -177,6 +211,11 @@ func on_block_delete():
 		generate_blocks()
 
 
+func on_line_deleted():
+	score += 100
+	ManagerGame.player_data['coins'] += 100
+
+
 func _on_Timer_timeout():
 	time_elapse_secs += 1
 	$Time/TimeLabel.text = ManagerGame.secs_to_mins(time_elapse_secs)
@@ -184,3 +223,13 @@ func _on_Timer_timeout():
 
 func _on_Home_pressed():
 	get_tree().change_scene("res://scenes/Menu.tscn")
+
+
+func _on_DialogTimer_timeout():
+	$Dialog/Label.visible_characters += 1
+	
+	if $Dialog/Label.percent_visible >= 1.0:
+		$Dialog/DialogTimer.stop()
+		yield(get_tree().create_timer(2.0), "timeout")
+		var tween = get_tree().create_tween()
+		tween.tween_property($Dialog, 'rect_position:x', $Dialog.rect_position.x - 750.0, 0.3).set_trans(Tween.TRANS_BOUNCE)

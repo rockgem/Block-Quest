@@ -13,7 +13,8 @@ const SAVE_PATH = 'user://data.json'
 
 var player_data = {
 	"coins": 0,
-	"roster": {}
+	"roster": {},
+	'auth_id': ''
 }
 
 var tiers = {
@@ -52,7 +53,8 @@ func save_game():
 func load_game():
 	var file = File.new()
 	file.open(SAVE_PATH, file.READ)
-	player_data = parse_json(file.get_as_text())
+	var nd = parse_json(file.get_as_text())
+	player_data.merge(nd)
 	file.close()
 
 

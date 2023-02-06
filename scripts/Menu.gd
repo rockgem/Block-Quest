@@ -7,6 +7,13 @@ func _ready():
 	
 	$Coins/Label.text = str(ManagerGame.player_data['coins'])
 	$ShopPanel/Coins/Label.text = str(ManagerGame.player_data['coins'])
+	
+	Firebase.Auth.connect("userdata_received", self, 'on_userdata_received')
+	Firebase.Auth.get_user_data()
+
+
+func on_userdata_received(userdata):
+	$LoggedinUserId.text = userdata.local_id
 
 
 func on_coins_changed():

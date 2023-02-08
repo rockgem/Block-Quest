@@ -26,6 +26,10 @@ func on_login_succeeded(auth_info):
 	
 	$Error.hide()
 	
+#	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection('users')
+#	var up_task : FirestoreTask = firestore_collection.update(auth_info['localid'], ManagerGame.data)
+#	var document : FirestoreDocument = yield(up_task, "update_document")
+	
 	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().change_scene("res://scenes/Menu.tscn")
 
@@ -47,6 +51,11 @@ func on_signup_succeeded(auth_info):
 	$Error.hide()
 	
 	yield(get_tree().create_timer(1.0), "timeout")
+	
+	var firestore_collection : FirestoreCollection = Firebase.Firestore.collection('users')
+	var add_task : FirestoreTask = firestore_collection.add(auth_info['localid'], ManagerGame.data)
+	var document : FirestoreTask = yield(add_task, "task_finished")
+	
 	get_tree().change_scene("res://scenes/Menu.tscn")
 
 

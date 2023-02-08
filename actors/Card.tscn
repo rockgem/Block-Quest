@@ -2,41 +2,49 @@
 
 [ext_resource path="res://reso/styles/card_base.tres" type="StyleBox" id=1]
 [ext_resource path="res://scripts/Card.gd" type="Script" id=2]
-[ext_resource path="res://reso/heroes/hero1.png" type="Texture" id=3]
+[ext_resource path="res://assets/rosters/char_mika.png" type="Texture" id=3]
 [ext_resource path="res://reso/anims/back.tres" type="Texture" id=4]
-[ext_resource path="res://assets/font48.tres" type="DynamicFont" id=5]
-[ext_resource path="res://assets/font24.tres" type="DynamicFont" id=6]
-[ext_resource path="res://reso/styles/card_panel_1.tres" type="StyleBox" id=7]
-[ext_resource path="res://reso/styles/card_panel_2.tres" type="StyleBox" id=8]
+[ext_resource path="res://reso/styles/font32.tres" type="DynamicFont" id=5]
+[ext_resource path="res://reso/styles/font24.tres" type="DynamicFont" id=6]
+[ext_resource path="res://assets/cards/slice49.png" type="Texture" id=7]
+[ext_resource path="res://assets/cards/slice74.png" type="Texture" id=8]
 
 [node name="Card" type="Panel"]
-margin_right = 527.0
-margin_bottom = 746.0
-rect_min_size = Vector2( 527, 746 )
+margin_right = 200.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 200, 300 )
 rect_clip_content = true
 custom_styles/panel = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="Panel" type="Panel" parent="."]
-modulate = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color( 0.654902, 0.298039, 0.654902, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 11.0
-margin_top = 110.0
-margin_right = -11.0
-margin_bottom = -224.0
-custom_styles/panel = ExtResource( 7 )
+margin_left = 10.0
+margin_top = 9.0
+margin_right = -10.0
+margin_bottom = -9.0
+texture = ExtResource( 7 )
+patch_margin_left = 50
+patch_margin_top = 70
+patch_margin_right = 42
+patch_margin_bottom = 54
 
-[node name="Panel2" type="Panel" parent="."]
-modulate = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
-anchor_top = 1.0
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+modulate = Color( 0.952941, 0.929412, 0.392157, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 11.0
-margin_top = -174.0
-margin_right = -11.0
-margin_bottom = -55.0
-custom_styles/panel = ExtResource( 8 )
+margin_left = 32.0
+margin_top = 29.0
+margin_right = -32.0
+margin_bottom = -71.0
+texture = ExtResource( 8 )
+region_rect = Rect2( 10, 10, 140, 200 )
+patch_margin_left = 68
+patch_margin_top = 102
+patch_margin_right = 68
+patch_margin_bottom = 98
 
 [node name="Back" type="TextureRect" parent="."]
 visible = false
@@ -53,19 +61,20 @@ stretch_mode = 6
 [node name="Icon" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 103.0
-margin_top = 141.0
-margin_right = -102.0
-margin_bottom = -266.0
+margin_left = 27.0
+margin_top = 8.0
+margin_right = -18.0
+margin_bottom = -20.0
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="Rarity" type="Label" parent="."]
-margin_left = 19.0
-margin_top = 39.0
-margin_right = 339.0
-margin_bottom = 68.0
+visible = false
+margin_left = 27.0
+margin_top = 22.0
+margin_right = 347.0
+margin_bottom = 51.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 6 )
 text = "Mythic"
@@ -77,13 +86,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -160.0
-margin_top = -141.0
-margin_right = 160.0
-margin_bottom = -84.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_left = -84.0
+margin_top = -65.0
+margin_right = 82.0
+margin_bottom = -27.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
 custom_fonts/font = ExtResource( 5 )
-text = "Hero Name"
+text = "Mika"
 align = 1
 valign = 1
 clip_text = true

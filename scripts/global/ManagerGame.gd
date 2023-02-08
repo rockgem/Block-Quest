@@ -11,16 +11,21 @@ signal block_release
 const SAVE_PATH = 'user://data.json'
 
 
-var player_data = {
-	"coins": 0,
-	"roster": {},
-	'auth_id': ''
-}
+var data = {
+		'name': '',
+		'gold': 0,
+		'level': 1,
+		'exp': 0,
+		'exp_max': 100,
+		'rosters': {},
+	}
+
+var rosters_data = {}
 
 var tiers = {
-	1: 'Common',
-	2: 'Rare',
-	3: 'Mythic',
+	0: 'Common',
+	1: 'Rare',
+	2: 'Mythic',
 }
 
 var speech = [
@@ -32,37 +37,43 @@ var speech = [
 ]
 
 
+var roster_data_base = {
+	'name': 'Mika',
+	'id': 'char_mika',
+	'rarity': 0
+}
+
 var is_dragging_block = false
 
 
 func _ready():
-	var file = File.new()
-	if file.file_exists(SAVE_PATH):
-		load_game()
-	else:
-		new_game()
+	var f = File.new()
+	f.open("res://reso/data/roster.json", f.READ)
+	rosters_data = parse_json(f.get_as_text())
+	f.close()
 
 
 func save_game():
-	var file = File.new()
-	file.open(SAVE_PATH, file.WRITE)
-	file.store_string(JSON.print(player_data))
-	file.close()
+	pass
+#	var file = File.new()
+#	file.open(SAVE_PATH, file.WRITE)
+#	file.store_string(JSON.print(player_data))
+#	file.close()
 
 
-func load_game():
-	var file = File.new()
-	file.open(SAVE_PATH, file.READ)
-	var nd = parse_json(file.get_as_text())
-	player_data.merge(nd)
-	file.close()
+#func load_game():
+#	var file = File.new()
+#	file.open(SAVE_PATH, file.READ)
+#	var nd = parse_json(file.get_as_text())
+#	player_data.merge(nd)
+#	file.close()
 
 
-func new_game():
-	var file = File.new()
-	file.open(SAVE_PATH, file.WRITE)
-	file.store_string(JSON.print(player_data))
-	file.close()
+#func new_game():
+#	var file = File.new()
+#	file.open(SAVE_PATH, file.WRITE)
+#	file.store_string(JSON.print(player_data))
+#	file.close()
 
 
 func int_to_currency(amount: int) -> String:

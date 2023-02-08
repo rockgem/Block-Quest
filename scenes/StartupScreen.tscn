@@ -4,10 +4,10 @@
 [ext_resource path="res://assets/palms.png" type="Texture" id=2]
 [ext_resource path="res://assets/icons/google.png" type="Texture" id=3]
 [ext_resource path="res://assets/icons/unknown.png" type="Texture" id=4]
-[ext_resource path="res://assets/font48.tres" type="DynamicFont" id=5]
+[ext_resource path="res://reso/styles/font48.tres" type="DynamicFont" id=5]
 [ext_resource path="res://scripts/StartupScreen.gd" type="Script" id=6]
 [ext_resource path="res://assets/icons/loading.png" type="Texture" id=7]
-[ext_resource path="res://assets/font24.tres" type="DynamicFont" id=8]
+[ext_resource path="res://reso/styles/font24.tres" type="DynamicFont" id=8]
 [ext_resource path="res://assets/icons/password.png" type="Texture" id=9]
 [ext_resource path="res://reso/styles/button_normal.tres" type="StyleBox" id=10]
 

@@ -7,11 +7,11 @@
 [ext_resource path="res://scripts/UI.gd" type="Script" id=5]
 [ext_resource path="res://assets/homeBtn.png" type="Texture" id=6]
 [ext_resource path="res://assets/time.png" type="Texture" id=7]
-[ext_resource path="res://assets/font64.tres" type="DynamicFont" id=8]
+[ext_resource path="res://reso/styles/font64.tres" type="DynamicFont" id=8]
 [ext_resource path="res://assets/total_poins.png" type="Texture" id=9]
 [ext_resource path="res://reso/styles/panel_small_1.tres" type="StyleBox" id=10]
 [ext_resource path="res://assets/sultan.png" type="Texture" id=11]
-[ext_resource path="res://assets/font48.tres" type="DynamicFont" id=12]
+[ext_resource path="res://reso/styles/font48.tres" type="DynamicFont" id=12]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 4 )

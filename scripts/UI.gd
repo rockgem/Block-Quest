@@ -213,7 +213,7 @@ func on_block_delete():
 
 func on_line_deleted():
 	score += 100
-	ManagerGame.player_data['coins'] += 100
+	ManagerGame.data['gold'] += 100
 
 
 func _on_Timer_timeout():

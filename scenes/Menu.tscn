@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://assets/bg_day.jpg" type="Texture" id=1]
 [ext_resource path="res://actors/Box.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/font64.tres" type="DynamicFont" id=3]
+[ext_resource path="res://reso/styles/font64.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=4]
 [ext_resource path="res://assets/soundOnBtn.png" type="Texture" id=5]
 [ext_resource path="res://assets/soundOffBtn.png" type="Texture" id=6]
@@ -16,7 +16,102 @@
 [ext_resource path="res://scripts/ShopPanel.gd" type="Script" id=14]
 [ext_resource path="res://actors/Card.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scripts/RosterPanel.gd" type="Script" id=16]
-[ext_resource path="res://assets/font24.tres" type="DynamicFont" id=17]
+[ext_resource path="res://reso/styles/font24.tres" type="DynamicFont" id=17]
+[ext_resource path="res://reso/styles/font32.tres" type="DynamicFont" id=18]
+[ext_resource path="res://assets/stone_blue.png" type="Texture" id=19]
+[ext_resource path="res://assets/stone_yellow.png" type="Texture" id=20]
+[ext_resource path="res://assets/stone_green.png" type="Texture" id=21]
+[ext_resource path="res://assets/icons/pencil.png" type="Texture" id=22]
+[ext_resource path="res://assets/icons/user.png" type="Texture" id=23]
+[ext_resource path="res://assets/icons/house.png" type="Texture" id=24]
+[ext_resource path="res://assets/icons/settings.png" type="Texture" id=25]
+[ext_resource path="res://assets/icons/shield.png" type="Texture" id=26]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.231373, 0.0431373, 0.286275, 0.65098 )
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_size = 6
+shadow_offset = Vector2( 0, 6 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color( 0.164706, 0.00784314, 0.203922, 1 )
+border_color = Color( 0.52549, 0.176471, 0.533333, 1 )
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+bg_color = Color( 0.996078, 0.431373, 1, 1 )
+skew = Vector2( -0.4, 0 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 8
+shadow_offset = Vector2( 0, 6 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+bg_color = Color( 0.996078, 0.431373, 1, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 6
+shadow_offset = Vector2( 0, 6 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+bg_color = Color( 0.996078, 0.431373, 1, 1 )
+skew = Vector2( 0.4, 0 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 6
+shadow_offset = Vector2( 0, 6 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.172549, 0.0862745, 0.160784, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="Theme" id=13]
+VScrollBar/styles/grabber = SubResource( 8 )
+VScrollBar/styles/grabber_highlight = SubResource( 9 )
+VScrollBar/styles/grabber_pressed = SubResource( 10 )
+VScrollBar/styles/scroll = SubResource( 11 )
+VScrollBar/styles/scroll_focus = SubResource( 12 )
+
+[sub_resource type="StyleBoxEmpty" id=14]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -61,7 +156,18 @@ texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
 
+[node name="LoggedinUserId" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 19.0
+margin_top = -42.0
+margin_right = 616.0
+margin_bottom = -13.0
+custom_fonts/font = ExtResource( 17 )
+text = "userid"
+
 [node name="Coins" type="TextureRect" parent="."]
+visible = false
 margin_left = 37.0
 margin_top = 48.0
 margin_right = 333.0
@@ -79,9 +185,10 @@ margin_right = 602.0
 margin_bottom = 35.5
 custom_colors/font_color = Color( 0.647059, 0.596078, 0.156863, 1 )
 custom_fonts/font = ExtResource( 3 )
-text = "99,999"
+text = "0"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -126,6 +233,7 @@ custom_styles/normal = ExtResource( 8 )
 text = "Buy Packs"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -283,8 +391,10 @@ mouse_filter = 2
 
 [node name="Card" parent="ShopPanel/CardShowerControl/Panel/CardShower" instance=ExtResource( 15 )]
 unique_name_in_owner = true
-margin_left = 70.0
-margin_right = 597.0
+margin_left = 234.0
+margin_top = 223.0
+margin_right = 434.0
+margin_bottom = 523.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -308,8 +418,8 @@ text = "Close"
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 27.0
-margin_bottom = -5.0
+margin_top = 368.0
+margin_bottom = -88.0
 custom_styles/panel = ExtResource( 11 )
 script = ExtResource( 16 )
 
@@ -352,19 +462,292 @@ margin_bottom = -265.0
 [node name="List" type="HFlowContainer" parent="RosterPanel/ScrollContainer"]
 unique_name_in_owner = true
 margin_right = 656.0
-margin_bottom = 1052.0
+margin_bottom = 628.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LoggedinUserId" type="Label" parent="."]
-anchor_top = 1.0
+[node name="HUD" type="Panel" parent="."]
+anchor_right = 1.0
+margin_bottom = 174.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+anchor_top = 0.426
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 19.0
-margin_top = -42.0
-margin_right = 616.0
-margin_bottom = -13.0
-custom_fonts/font = ExtResource( 17 )
-text = "userid"
+margin_left = 16.0
+margin_top = 0.0779953
+margin_right = -16.0
+margin_bottom = 4.0
+custom_constants/separation = 26
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/HBoxContainer"]
+margin_right = 212.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
+custom_constants/separation = 23
+alignment = 1
+
+[node name="Level" type="Label" parent="HUD/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_top = 32.0
+margin_right = 212.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+custom_styles/normal = SubResource( 1 )
+text = "99"
+align = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer/HBoxContainer/Level"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -7.0
+margin_top = -28.0
+margin_right = 56.0
+margin_bottom = 37.0
+texture = ExtResource( 21 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/HBoxContainer"]
+margin_left = 238.0
+margin_right = 450.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
+custom_constants/separation = 23
+alignment = 1
+
+[node name="Gold" type="Label" parent="HUD/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_top = 32.0
+margin_right = 212.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+custom_styles/normal = SubResource( 1 )
+text = "99"
+align = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer/HBoxContainer2/Gold"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -32.0
+margin_right = 53.0
+margin_bottom = 33.0
+texture = ExtResource( 20 )
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HUD/HBoxContainer"]
+margin_left = 476.0
+margin_right = 688.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
+custom_constants/separation = 23
+alignment = 1
+
+[node name="EXP" type="Label" parent="HUD/HBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+margin_top = 32.0
+margin_right = 212.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+custom_styles/normal = SubResource( 1 )
+text = "99"
+align = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer/HBoxContainer3/EXP"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -32.5
+margin_right = 53.0
+margin_bottom = 32.5
+texture = ExtResource( 19 )
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 190.0
+margin_right = -10.0
+margin_bottom = 288.0
+custom_constants/separation = 34
+alignment = 1
+
+[node name="EditRoster" type="Button" parent="Buttons"]
+margin_left = 37.0
+margin_right = 135.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 98, 98 )
+size_flags_vertical = 6
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+icon = ExtResource( 22 )
+expand_icon = true
+
+[node name="Gallery" type="Button" parent="Buttons"]
+margin_left = 169.0
+margin_right = 267.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 98, 98 )
+size_flags_vertical = 6
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+icon = ExtResource( 23 )
+expand_icon = true
+
+[node name="Home" type="Button" parent="Buttons"]
+margin_left = 301.0
+margin_right = 399.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 98, 98 )
+size_flags_vertical = 6
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 4 )
+icon = ExtResource( 24 )
+expand_icon = true
+
+[node name="Shop" type="Button" parent="Buttons"]
+margin_left = 433.0
+margin_right = 531.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 98, 98 )
+size_flags_vertical = 6
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+icon = ExtResource( 26 )
+expand_icon = true
+
+[node name="Options" type="Button" parent="Buttons"]
+margin_left = 565.0
+margin_right = 663.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 98, 98 )
+size_flags_vertical = 6
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+icon = ExtResource( 25 )
+expand_icon = true
+
+[node name="Tab" type="TabContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color( 1, 1, 1, 0.741176 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 300.0
+margin_bottom = 16.0
+custom_styles/panel = SubResource( 15 )
+
+[node name="Deck" type="Tabs" parent="Tab"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+
+[node name="Panel" type="Panel" parent="Tab/Deck"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 7 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Tab/Deck/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 56.0
+margin_top = 90.0
+margin_right = -52.0
+margin_bottom = -308.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 13 )
+scroll_horizontal_enabled = false
+
+[node name="GridContainer" type="GridContainer" parent="Tab/Deck/Panel/ScrollContainer"]
+columns = 3
+
+[node name="Roster" type="Tabs" parent="Tab"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+
+[node name="Panel" type="Panel" parent="Tab/Roster"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 14 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Tab/Roster/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 44.0
+margin_top = 90.0
+margin_right = -44.0
+margin_bottom = -308.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 13 )
+scroll_horizontal_enabled = false
+
+[node name="GridContainer" type="GridContainer" parent="Tab/Roster/Panel/ScrollContainer"]
+margin_right = 632.0
+margin_bottom = 616.0
+custom_constants/vseparation = 16
+custom_constants/hseparation = 16
+columns = 3
+
+[node name="Card" parent="Tab/Roster/Panel/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
+char_id = "char_mika"
+
+[node name="Card2" parent="Tab/Roster/Panel/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
+margin_left = 216.0
+margin_right = 416.0
+char_id = "char_jay"
+
+[node name="Card3" parent="Tab/Roster/Panel/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
+margin_left = 432.0
+margin_right = 632.0
+char_id = "char_john"
+
+[node name="Card4" parent="Tab/Roster/Panel/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
+margin_top = 316.0
+margin_bottom = 616.0
+char_id = "char_omo"
+
+[node name="Card5" parent="Tab/Roster/Panel/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
+margin_left = 216.0
+margin_top = 316.0
+margin_right = 416.0
+margin_bottom = 616.0
+char_id = "char_belinda"
+
+[node name="Card6" parent="Tab/Roster/Panel/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
+margin_left = 432.0
+margin_top = 316.0
+margin_right = 632.0
+margin_bottom = 616.0
+char_id = "char_buzz"
+
+[node name="Tabs3" type="Tabs" parent="Tab"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+
+[node name="Tabs4" type="Tabs" parent="Tab"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Roster" to="." method="_on_Roster_pressed"]
@@ -374,3 +757,5 @@ text = "userid"
 [connection signal="pressed" from="ShopPanel/CloseShop" to="." method="_on_CloseShop_pressed"]
 [connection signal="pressed" from="ShopPanel/CardShowerControl/Panel/CloseCard" to="ShopPanel" method="_on_CloseCard_pressed"]
 [connection signal="pressed" from="RosterPanel/CloseRoster" to="." method="_on_CloseRoster_pressed"]
+[connection signal="pressed" from="Buttons/EditRoster" to="." method="_on_EditRoster_pressed"]
+[connection signal="pressed" from="Buttons/Home" to="." method="_on_Home_pressed"]

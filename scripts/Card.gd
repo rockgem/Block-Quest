@@ -27,3 +27,5 @@ func load_data():
 	get_node('%Name').text = data['name']
 	get_node('%Icon').texture = load("res://assets/rosters/%s.png" % data['id'])
 	
+	if data.has('level'):
+		pass

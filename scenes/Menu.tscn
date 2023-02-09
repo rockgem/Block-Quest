@@ -687,6 +687,10 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="HomePanel" type="Panel" parent="Tab/Home"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Roster" to="." method="_on_Roster_pressed"]
 [connection signal="pressed" from="VBoxContainer/Shop" to="." method="_on_Shop_pressed"]

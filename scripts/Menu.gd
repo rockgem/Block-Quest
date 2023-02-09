@@ -40,6 +40,7 @@ func on_chest_buy():
 	$Tab/Shop/ColorRect/LoadingIndicator/AnimationPlayer.play("anim")
 	var up_task : FirestoreTask = firestore_collection.update(Firebase.Auth.auth['localid'], ManagerGame.data)
 	var document : FirestoreDocument = yield(up_task, "update_document")
+	ManagerGame.data = document.doc_fields
 	$Tab/Shop/ColorRect.hide()
 	$Tab/Shop/ColorRect/LoadingIndicator.hide()
 	$Tab/Shop/ColorRect/LoadingIndicator/AnimationPlayer.stop()

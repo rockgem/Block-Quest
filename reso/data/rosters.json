@@ -1,10 +1,32 @@
 {
     "char_mika": {
+        "id": "char_mika",
         "name": "Mika",
         "rarity": 0
     },
     "char_buzz": {
+        "id": "char_buzz",
         "name": "Buzz",
+        "rarity": 0
+    },
+    "char_simone": {
+        "id": "char_simone",
+        "name": "Simone",
+        "rarity": 0
+    },
+    "char_jay": {
+        "id": "char_jay",
+        "name": "Jay",
+        "rarity": 0
+    },
+    "char_magi": {
+        "id": "char_magi",
+        "name": "Magi Magic",
+        "rarity": 0
+    },
+    "char_omo": {
+        "id": "char_omo",
+        "name": "Omo God",
         "rarity": 0
     }
 }

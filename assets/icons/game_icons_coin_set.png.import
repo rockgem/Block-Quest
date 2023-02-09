@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/card_image_sample (14).png-3a8d35f892d3b120107e9cf06d36f0d2.stex"
+path="res://.import/game_icons_coin_set.png-7f9d2612abb74c28b7432036021ea274.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rosters/card_image_sample (14).png"
-dest_files=[ "res://.import/card_image_sample (14).png-3a8d35f892d3b120107e9cf06d36f0d2.stex" ]
+source_file="res://assets/icons/game_icons_coin_set.png"
+dest_files=[ "res://.import/game_icons_coin_set.png-7f9d2612abb74c28b7432036021ea274.stex" ]
 
 [params]
 

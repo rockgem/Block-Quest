@@ -2,10 +2,13 @@ extends Node
 
 
 signal coins_changed
+signal gems_changed
 signal line_deleted
 
 signal block_drag
 signal block_release
+
+signal chest_buy
 
 
 const SAVE_PATH = 'user://data.json'
@@ -13,11 +16,13 @@ const SAVE_PATH = 'user://data.json'
 
 var data = {
 		'name': '',
-		'gold': 0,
+		'gold': 43534,
+		'gem': 10,
 		'level': 1,
 		'exp': 0,
 		'exp_max': 100,
-		'rosters': {},
+		'rosters': [], # array of dictionaries
+		'deck_chars': [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
 	}
 
 var rosters_data = {}
@@ -40,7 +45,9 @@ var speech = [
 var roster_data_base = {
 	'name': 'Mika',
 	'id': 'char_mika',
-	'rarity': 0
+	'rarity': 0,
+	'level': 0,
+	'exp': 0
 }
 
 var is_dragging_block = false
@@ -48,7 +55,7 @@ var is_dragging_block = false
 
 func _ready():
 	var f = File.new()
-	f.open("res://reso/data/roster.json", f.READ)
+	f.open("res://reso/data/rosters.json", f.READ)
 	rosters_data = parse_json(f.get_as_text())
 	f.close()
 

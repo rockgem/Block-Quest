@@ -26,6 +26,8 @@ func on_userdata_received(userdata):
 	get_node('%Level').text = str(ManagerGame.data['level'])
 	get_node('%Gold').text = str(ManagerGame.data['gold'])
 	get_node('%EXP').text = str(ManagerGame.data['exp'])
+	
+	get_node('%Tab').get_node("Deck/DeckBuilder").load_deck()
 #	$Coins/Label.text = str(ManagerGame.data['gold'])
 #	$ShopPanel/Coins/Label.text = str(ManagerGame.data['gold'])
 
@@ -47,7 +49,12 @@ func on_chest_buy():
 
 
 func tab_change(idx: int):
+	var dur = 0.1
+	var t = get_tree().create_tween()
+	t.tween_property($Tab, 'modulate', Color.transparent, dur)
 	get_node('%Tab').current_tab = idx
+	t.tween_property($Tab, 'modulate', Color.white, dur).set_delay(dur)
+	
 
 
 func _on_Play_pressed():

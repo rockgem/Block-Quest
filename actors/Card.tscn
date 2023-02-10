@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://reso/styles/card_base.tres" type="StyleBox" id=1]
 [ext_resource path="res://scripts/Card.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://reso/styles/font24.tres" type="DynamicFont" id=6]
 [ext_resource path="res://assets/cards/slice49.png" type="Texture" id=7]
 [ext_resource path="res://assets/cards/slice74.png" type="Texture" id=8]
+[ext_resource path="res://assets/icons/plus.png" type="Texture" id=9]
 
 [node name="Card" type="Panel"]
 margin_right = 200.0
@@ -46,6 +47,21 @@ patch_margin_left = 68
 patch_margin_top = 102
 patch_margin_right = 68
 patch_margin_bottom = 98
+
+[node name="Add" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.584314 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -34.0
+margin_right = 34.0
+margin_bottom = 34.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
 
 [node name="Back" type="TextureRect" parent="."]
 visible = false
@@ -102,3 +118,5 @@ text = "Mika"
 align = 1
 valign = 1
 clip_text = true
+
+[connection signal="gui_input" from="." to="." method="_on_Card_gui_input"]

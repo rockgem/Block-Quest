@@ -1,4 +1,7 @@
+tool
 extends Panel
+
+signal clicked(own)
 
 export(String) var char_id: String 
 export(Dictionary) var data = {}
@@ -19,6 +22,7 @@ func _ready():
 	if data.empty() == false:
 		load_data()
 	else:
+		$Add.show()
 		$Halo.hide()
 		modulate = Color(1,1,1, 0.8)
 
@@ -29,3 +33,8 @@ func load_data():
 	
 	if data.has('level'):
 		pass
+
+
+func _on_Card_gui_input(event):
+	if event is InputEventScreenTouch and !event.pressed:
+		emit_signal("clicked", self)

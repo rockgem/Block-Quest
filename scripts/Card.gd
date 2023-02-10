@@ -15,20 +15,32 @@ func _ready():
 		get_node('%Icon').texture = load("res://assets/rosters/%s.png" % char_id)
 		
 		data = ManagerGame.rosters_data[char_id]
+		data['level'] = 1
+		data['exp'] = 0
 	else:
 		get_node('%Name').hide()
 		get_node('%Icon').hide()
 	
 	if data.empty() == false:
 		load_data()
+		$Halo.show()
+		get_node('%Icon').show()
+		get_node('%Name').show()
+		get_node('%Level').show()
+		get_node('%EXP').show()
 	else:
+		$Level.hide()
+		$EXP.hide()
 		$Add.show()
 		$Halo.hide()
+		$Icon.hide()
 		modulate = Color(1,1,1, 0.8)
 
 
 func load_data():
 	get_node('%Name').text = data['name']
+	get_node('%Level').text = 'Lvl' + str(data['level'])
+	get_node('%EXP').value = float(data['exp'])
 	get_node('%Icon').texture = load("res://assets/rosters/%s.png" % data['id'])
 	
 	if data.has('level'):

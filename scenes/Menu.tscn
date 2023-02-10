@@ -154,6 +154,9 @@ margin_bottom = 2284.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Tree" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -321,7 +324,7 @@ margin_bottom = 70.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 18 )
 custom_styles/normal = SubResource( 1 )
-text = "99"
+text = "0"
 align = 2
 
 [node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer/HBoxContainer/Level"]
@@ -349,7 +352,7 @@ margin_bottom = 70.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 18 )
 custom_styles/normal = SubResource( 1 )
-text = "99"
+text = "0"
 align = 2
 
 [node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer/HBoxContainer2/Gold"]
@@ -377,7 +380,7 @@ margin_bottom = 70.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 18 )
 custom_styles/normal = SubResource( 1 )
-text = "99"
+text = "0"
 align = 2
 
 [node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer/HBoxContainer3/EXP"]
@@ -523,70 +526,58 @@ custom_constants/hseparation = 8
 columns = 3
 
 [node name="Card" parent="Tab/Deck/DeckBuilder/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
-modulate = Color( 1, 1, 1, 0.8 )
 
 [node name="Card2" parent="Tab/Deck/DeckBuilder/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
-modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 208.0
 margin_right = 408.0
 
 [node name="Card3" parent="Tab/Deck/DeckBuilder/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
-modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 416.0
 margin_right = 616.0
 
 [node name="Card4" parent="Tab/Deck/DeckBuilder/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
-modulate = Color( 1, 1, 1, 0.8 )
 margin_top = 322.0
 margin_bottom = 622.0
 
 [node name="Card5" parent="Tab/Deck/DeckBuilder/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
-modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 208.0
 margin_top = 322.0
 margin_right = 408.0
 margin_bottom = 622.0
 
 [node name="Card6" parent="Tab/Deck/DeckBuilder/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
-modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 416.0
 margin_top = 322.0
 margin_right = 616.0
 margin_bottom = 622.0
 
 [node name="Card7" parent="Tab/Deck/DeckBuilder/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
-modulate = Color( 1, 1, 1, 0.8 )
 margin_top = 644.0
 margin_bottom = 944.0
 
 [node name="Card8" parent="Tab/Deck/DeckBuilder/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
-modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 208.0
 margin_top = 644.0
 margin_right = 408.0
 margin_bottom = 944.0
 
 [node name="Card9" parent="Tab/Deck/DeckBuilder/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
-modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 416.0
 margin_top = 644.0
 margin_right = 616.0
 margin_bottom = 944.0
 
 [node name="Card10" parent="Tab/Deck/DeckBuilder/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
-modulate = Color( 1, 1, 1, 0.8 )
 margin_top = 966.0
 margin_bottom = 1266.0
 
 [node name="Card11" parent="Tab/Deck/DeckBuilder/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
-modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 208.0
 margin_top = 966.0
 margin_right = 408.0
 margin_bottom = 1266.0
 
 [node name="Card12" parent="Tab/Deck/DeckBuilder/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
-modulate = Color( 1, 1, 1, 0.8 )
 margin_left = 416.0
 margin_top = 966.0
 margin_right = 616.0
@@ -636,6 +627,20 @@ custom_styles/pressed = ExtResource( 8 )
 custom_styles/focus = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
 text = "Close"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Tab/Deck/DeckBuilder/SelectPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 47.0
+margin_top = 51.0
+margin_right = -47.0
+margin_bottom = -186.0
+scroll_horizontal_enabled = false
+
+[node name="AvailableRostersList" type="HFlowContainer" parent="Tab/Deck/DeckBuilder/SelectPanel/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 626.0
+size_flags_horizontal = 3
 
 [node name="Roster" type="Tabs" parent="Tab"]
 visible = false
@@ -732,6 +737,56 @@ price = 100
 [node name="TextureRect" parent="Tab/Shop/ShopPanel/GridContainer/Panel2" index="0"]
 texture = SubResource( 17 )
 
+[node name="PopOnBuy" type="Panel" parent="Tab/Shop/ShopPanel"]
+unique_name_in_owner = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -289.0
+margin_top = -496.5
+margin_right = 279.0
+margin_bottom = 220.5
+
+[node name="Label" type="Label" parent="Tab/Shop/ShopPanel/PopOnBuy"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -127.0
+margin_top = 41.0
+margin_right = 127.0
+margin_bottom = 79.0
+custom_fonts/font = ExtResource( 11 )
+text = "You got:"
+align = 1
+
+[node name="Card" parent="Tab/Shop/ShopPanel/PopOnBuy" instance=ExtResource( 15 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -212.5
+margin_right = 100.0
+margin_bottom = 87.5
+char_id = "char_mika"
+
+[node name="Ok" type="Button" parent="Tab/Shop/ShopPanel/PopOnBuy"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -203.0
+margin_top = -180.0
+margin_right = 203.0
+margin_bottom = -45.0
+custom_fonts/font = ExtResource( 3 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
+text = "OK"
+
 [node name="ColorRect" type="ColorRect" parent="Tab/Shop"]
 visible = false
 self_modulate = Color( 0.235294, 0.235294, 0.235294, 0.627451 )
@@ -782,5 +837,6 @@ anchor_bottom = 1.0
 [connection signal="pressed" from="Buttons/Shop" to="." method="tab_change" binds= [ 2 ]]
 [connection signal="pressed" from="Buttons/Options" to="." method="tab_change" binds= [ 3 ]]
 [connection signal="pressed" from="Tab/Deck/DeckBuilder/SelectPanel/CloseSelect" to="Tab/Deck/DeckBuilder" method="_on_CloseSelect_pressed"]
+[connection signal="pressed" from="Tab/Shop/ShopPanel/PopOnBuy/Ok" to="Tab/Shop/ShopPanel" method="_on_Ok_pressed"]
 
 [editable path="Tab/Shop/ShopPanel/GridContainer/Panel2"]

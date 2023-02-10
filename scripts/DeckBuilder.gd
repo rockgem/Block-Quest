@@ -27,6 +27,14 @@ func on_clicked(own):
 	var t = get_tree().create_tween()
 	t.tween_property($SelectPanel, 'rect_scale', Vector2.ONE, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	
+	for child in get_node('%AvailableRostersList').get_children():
+		child.queue_free()
+	
+	for roster in ManagerGame.data['rosters']:
+		var display = load("res://actors/Card.tscn").instance()
+		display.data = roster
+		get_node('%AvailableRostersList').add_child(display)
+	
 	current_selected_card = own
 
 

@@ -41,5 +41,5 @@ func _on_Buy_pressed():
 	
 	
 	
-	ManagerGame.emit_signal("chest_buy")
+	ManagerGame.emit_signal("chest_buy", data)
 	ManagerGame.emit_signal("coins_changed")

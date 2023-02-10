@@ -36,13 +36,14 @@ func on_coins_changed():
 	get_node('%Gold').text = str(ManagerGame.data['gold'])
 
 
-func on_chest_buy():
+func on_chest_buy(data):
 	$Tab/Shop/ColorRect.show()
 	$Tab/Shop/ColorRect/LoadingIndicator.show()
 	$Tab/Shop/ColorRect/LoadingIndicator/AnimationPlayer.play("anim")
 	var up_task : FirestoreTask = firestore_collection.update(Firebase.Auth.auth['localid'], ManagerGame.data)
 	var document : FirestoreDocument = yield(up_task, "update_document")
 	ManagerGame.data = document.doc_fields
+	get_node('%ShopPanel').pop(data)
 	$Tab/Shop/ColorRect.hide()
 	$Tab/Shop/ColorRect/LoadingIndicator.hide()
 	$Tab/Shop/ColorRect/LoadingIndicator/AnimationPlayer.stop()

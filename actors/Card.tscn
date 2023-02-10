@@ -1,16 +1,22 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://reso/styles/card_base.tres" type="StyleBox" id=1]
 [ext_resource path="res://scripts/Card.gd" type="Script" id=2]
 [ext_resource path="res://assets/rosters/char_mika.png" type="Texture" id=3]
 [ext_resource path="res://reso/anims/back.tres" type="Texture" id=4]
 [ext_resource path="res://reso/styles/font32.tres" type="DynamicFont" id=5]
-[ext_resource path="res://reso/styles/font24.tres" type="DynamicFont" id=6]
 [ext_resource path="res://assets/cards/slice49.png" type="Texture" id=7]
 [ext_resource path="res://assets/cards/slice74.png" type="Texture" id=8]
 [ext_resource path="res://assets/icons/plus.png" type="Texture" id=9]
 
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.219608, 0.298039, 0.811765, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.145098, 0.117647, 0.482353, 1 )
+
 [node name="Card" type="Panel"]
+modulate = Color( 1, 1, 1, 0.8 )
 margin_right = 200.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 200, 300 )
@@ -87,15 +93,17 @@ texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
-[node name="Rarity" type="Label" parent="."]
-visible = false
-margin_left = 27.0
-margin_top = 22.0
-margin_right = 347.0
-margin_bottom = 51.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 6 )
-text = "Mythic"
+[node name="Level" type="Label" parent="."]
+unique_name_in_owner = true
+margin_left = 26.0
+margin_top = 17.0
+margin_right = 224.0
+margin_bottom = 55.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 5 )
+text = "Lvl 1"
 valign = 1
 clip_text = true
 
@@ -106,9 +114,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -84.0
-margin_top = -65.0
+margin_top = -80.0
 margin_right = 82.0
-margin_bottom = -27.0
+margin_bottom = -42.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -118,5 +126,19 @@ text = "Mika"
 align = 1
 valign = 1
 clip_text = true
+
+[node name="EXP" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 31.0
+margin_top = -41.0
+margin_right = -31.0
+margin_bottom = -27.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 40.0
+percent_visible = false
 
 [connection signal="gui_input" from="." to="." method="_on_Card_gui_input"]

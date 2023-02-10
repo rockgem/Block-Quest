@@ -1,7 +1,7 @@
 extends Control
 
 
-onready var firestore_collection : FirestoreCollection = Firebase.Firestore.collection('users')
+
 
 
 func _ready():
@@ -18,8 +18,8 @@ func on_userdata_received(userdata):
 	$LoggedinUserId.text = userdata.local_id
 	
 	
-	firestore_collection.get(userdata['local_id'])
-	var document : FirestoreDocument = yield(firestore_collection, "get_document")
+	ManagerGame.firestore_collection.get(userdata['local_id'])
+	var document : FirestoreDocument = yield(ManagerGame.firestore_collection, "get_document")
 	
 	ManagerGame.data = document.doc_fields
 	
@@ -40,7 +40,7 @@ func on_chest_buy(data):
 	$Tab/Shop/ColorRect.show()
 	$Tab/Shop/ColorRect/LoadingIndicator.show()
 	$Tab/Shop/ColorRect/LoadingIndicator/AnimationPlayer.play("anim")
-	var up_task : FirestoreTask = firestore_collection.update(Firebase.Auth.auth['localid'], ManagerGame.data)
+	var up_task : FirestoreTask = ManagerGame.firestore_collection.update(Firebase.Auth.auth['localid'], ManagerGame.data)
 	var document : FirestoreDocument = yield(up_task, "update_document")
 	ManagerGame.data = document.doc_fields
 	get_node('%ShopPanel').pop(data)

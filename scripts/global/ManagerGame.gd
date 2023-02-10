@@ -27,6 +27,9 @@ var data = {
 
 var rosters_data = {}
 
+onready var firestore_collection : FirestoreCollection = Firebase.Firestore.collection('users')
+
+
 var tiers = {
 	0: 'Common',
 	1: 'Rare',

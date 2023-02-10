@@ -32,10 +32,24 @@ func on_clicked(own):
 	
 	for roster in ManagerGame.data['rosters']:
 		var display = load("res://actors/Card.tscn").instance()
+		display.connect('clicked', self, 'on_clicked_to_slot')
 		display.data = roster
 		get_node('%AvailableRostersList').add_child(display)
 	
 	current_selected_card = own
+
+
+func on_clicked_to_slot(own):
+	ManagerGame.data['deck_chars'][current_selected_card.get_index()] = own.data
+	current_selected_card.data = own.data
+	current_selected_card._ready()
+	current_selected_card = null
+	
+	var up_task : FirestoreTask = ManagerGame.firestore_collection.update(Firebase.Auth.auth['localid'], ManagerGame.data)
+	var document : FirestoreDocument = yield(up_task, "update_document")
+	ManagerGame.data = document.doc_fields
+	
+	$SelectPanel.hide()
 
 
 func _on_CloseSelect_pressed():

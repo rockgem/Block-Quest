@@ -170,10 +170,10 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 ManagerGame="*res://scripts/global/ManagerGame.gd"
 Bgm="*res://sounds/bgm/BGM.tscn"
 Sfx="*res://sounds/sfx/SFX.tscn"
-Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [display]
 

@@ -23,11 +23,6 @@ func _ready():
 	
 	if data.empty() == false:
 		load_data()
-		$Halo.show()
-		get_node('%Icon').show()
-		get_node('%Name').show()
-		get_node('%Level').show()
-		get_node('%EXP').show()
 	else:
 		$Level.hide()
 		$EXP.hide()
@@ -42,6 +37,13 @@ func load_data():
 	get_node('%Level').text = 'Lvl' + str(data['level'])
 	get_node('%EXP').value = float(data['exp'])
 	get_node('%Icon').texture = load("res://assets/rosters/%s.png" % data['id'])
+	
+	$Halo.show()
+	$Add.hide()
+	get_node('%Icon').show()
+	get_node('%Name').show()
+	get_node('%Level').show()
+	get_node('%EXP').show()
 	
 	if data.has('level'):
 		pass

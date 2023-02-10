@@ -37,4 +37,5 @@ func load_data():
 
 func _on_Card_gui_input(event):
 	if event is InputEventScreenTouch and !event.pressed:
-		emit_signal("clicked", self)
+		if get_global_rect().has_point(get_global_mouse_position()):
+			emit_signal("clicked", self)

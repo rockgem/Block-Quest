@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/bg_day.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/icons/loading.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=4]
 [ext_resource path="res://assets/soundOnBtn.png" type="Texture" id=5]
 [ext_resource path="res://assets/soundOffBtn.png" type="Texture" id=6]
+[ext_resource path="res://scripts/RosterPanel.gd" type="Script" id=7]
 [ext_resource path="res://reso/styles/button_normal.tres" type="StyleBox" id=8]
 [ext_resource path="res://scenes/ShopPanel.gd" type="Script" id=9]
 [ext_resource path="res://reso/styles/font48.tres" type="DynamicFont" id=11]
@@ -571,6 +572,7 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 15 )
+script = ExtResource( 7 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Tab/Roster/Gallery"]
 anchor_right = 1.0
@@ -586,33 +588,33 @@ size_flags_vertical = 3
 theme = SubResource( 13 )
 scroll_horizontal_enabled = false
 
-[node name="GridContainer" type="GridContainer" parent="Tab/Roster/Gallery/ScrollContainer"]
-visible = false
+[node name="RostersList" type="GridContainer" parent="Tab/Roster/Gallery/ScrollContainer"]
+unique_name_in_owner = true
 margin_right = 632.0
 margin_bottom = 616.0
 custom_constants/vseparation = 16
 custom_constants/hseparation = 16
 columns = 3
 
-[node name="Card" parent="Tab/Roster/Gallery/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
+[node name="Card" parent="Tab/Roster/Gallery/ScrollContainer/RostersList" instance=ExtResource( 15 )]
 char_id = "char_mika"
 
-[node name="Card2" parent="Tab/Roster/Gallery/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
+[node name="Card2" parent="Tab/Roster/Gallery/ScrollContainer/RostersList" instance=ExtResource( 15 )]
 margin_left = 216.0
 margin_right = 416.0
 char_id = "char_simone"
 
-[node name="Card3" parent="Tab/Roster/Gallery/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
+[node name="Card3" parent="Tab/Roster/Gallery/ScrollContainer/RostersList" instance=ExtResource( 15 )]
 margin_left = 432.0
 margin_right = 632.0
 char_id = "char_buzz"
 
-[node name="Card4" parent="Tab/Roster/Gallery/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
+[node name="Card4" parent="Tab/Roster/Gallery/ScrollContainer/RostersList" instance=ExtResource( 15 )]
 margin_top = 316.0
 margin_bottom = 616.0
 char_id = "char_omo"
 
-[node name="Card5" parent="Tab/Roster/Gallery/ScrollContainer/GridContainer" instance=ExtResource( 15 )]
+[node name="Card5" parent="Tab/Roster/Gallery/ScrollContainer/RostersList" instance=ExtResource( 15 )]
 margin_left = 216.0
 margin_top = 316.0
 margin_right = 416.0
@@ -826,8 +828,8 @@ text = "Play"
 
 [connection signal="pressed" from="Buttons/EditRoster" to="." method="tab_change" binds= [ 0 ]]
 [connection signal="pressed" from="Buttons/Gallery" to="." method="tab_change" binds= [ 1 ]]
-[connection signal="pressed" from="Buttons/Home" to="." method="_on_Home_pressed"]
 [connection signal="pressed" from="Buttons/Home" to="." method="tab_change" binds= [ 4 ]]
+[connection signal="pressed" from="Buttons/Home" to="." method="_on_Home_pressed"]
 [connection signal="pressed" from="Buttons/Shop" to="." method="tab_change" binds= [ 2 ]]
 [connection signal="pressed" from="Buttons/Options" to="." method="tab_change" binds= [ 3 ]]
 [connection signal="pressed" from="Tab/Deck/DeckBuilder/SelectPanel/CloseSelect" to="Tab/Deck/DeckBuilder" method="_on_CloseSelect_pressed"]

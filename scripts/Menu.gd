@@ -31,6 +31,9 @@ func on_userdata_received(userdata):
 	get_node('%EXP').text = str(ManagerGame.data['exp'])
 	
 	get_node('%Tab').get_node("Deck/DeckBuilder").load_deck()
+	get_node('%Tab').get_node("Roster/Gallery")._ready()
+	
+	
 #	$Coins/Label.text = str(ManagerGame.data['gold'])
 #	$ShopPanel/Coins/Label.text = str(ManagerGame.data['gold'])
 
@@ -50,6 +53,8 @@ func on_chest_buy(data):
 	$Tab/Shop/ColorRect.hide()
 	$Tab/Shop/ColorRect/LoadingIndicator.hide()
 	$Tab/Shop/ColorRect/LoadingIndicator/AnimationPlayer.stop()
+	
+	get_node('%Tab').get_node("Roster/Gallery")._ready()
 
 
 func tab_change(idx: int):

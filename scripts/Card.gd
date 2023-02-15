@@ -49,6 +49,16 @@ func load_data():
 		pass
 
 
+# status = true means char is locked stus = false means char is unlocked
+func set_status(is_locked: bool = true):
+	if is_locked:
+		$Icon.modulate = Color.black
+		$Name.text = '?????'
+	else:
+		$Icon.modulate = Color.white
+		$Name.text = data['name']
+
+
 func _on_Card_gui_input(event):
 	if event is InputEventScreenTouch and !event.pressed:
 		if get_global_rect().has_point(get_global_mouse_position()):

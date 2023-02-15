@@ -381,6 +381,7 @@ custom_styles/panel = SubResource( 20 )
 tabs_visible = false
 
 [node name="Deck" type="Tabs" parent="Tab"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -590,8 +591,6 @@ scroll_horizontal_enabled = false
 
 [node name="RostersList" type="GridContainer" parent="Tab/Roster/Gallery/ScrollContainer"]
 unique_name_in_owner = true
-margin_right = 632.0
-margin_bottom = 616.0
 custom_constants/vseparation = 16
 custom_constants/hseparation = 16
 columns = 3
@@ -767,7 +766,6 @@ texture_pressed = ExtResource( 6 )
 expand = true
 
 [node name="Home" type="Tabs" parent="Tab"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -777,23 +775,28 @@ anchor_bottom = 1.0
 custom_styles/panel = SubResource( 19 )
 
 [node name="Label" type="Label" parent="Tab/Home/HomePanel"]
+visible = false
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
+anchor_bottom = 1.0
 margin_left = -127.0
-margin_top = 41.0
+margin_top = -1083.0
 margin_right = 127.0
-margin_bottom = 98.0
+margin_bottom = -1026.0
 custom_fonts/font = ExtResource( 11 )
 text = "Home"
 align = 1
 
 [node name="Play" type="Button" parent="Tab/Home/HomePanel"]
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
+anchor_bottom = 1.0
 margin_left = -175.0
-margin_top = 113.0
+margin_top = -300.0
 margin_right = 175.0
-margin_bottom = 229.0
+margin_bottom = -184.0
 custom_fonts/font = ExtResource( 11 )
 custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 8 )

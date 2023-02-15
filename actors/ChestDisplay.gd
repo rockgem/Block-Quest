@@ -3,6 +3,7 @@ extends Panel
 export(int) var price = 1000
 
 signal clicked
+signal chest_error_no_gold
 
 func _ready():
 	$Price.text = str(price)
@@ -20,6 +21,8 @@ func _ready():
 func _on_Buy_pressed():
 	
 	if ManagerGame.data['gold'] < price:
+		$"/root/Sfx".get_node("Error").play()
+		emit_signal('chest_error_no_gold')
 		return
 	
 	ManagerGame.data['gold'] -= price

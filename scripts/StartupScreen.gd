@@ -12,7 +12,7 @@ func _ready():
 	Firebase.Auth.connect("token_refresh_succeeded", self, 'on_token_refresh_succeeded')
 	
 	
-	Firebase.Auth.check_auth_file()
+	
 #	Firebase.Auth.remove_auth()
 #	Firebase.Auth.load_auth()
 
@@ -100,3 +100,14 @@ func _on_Cancel_pressed():
 
 func _on_Create_pressed():
 	pass # Replace with function body.
+
+
+func _on_Splash_gui_input(event):
+	if event is InputEventScreenTouch and !event.pressed:
+		$Splash/Label.hide()
+		
+		var t = get_tree().create_tween()
+		t.tween_property($Splash/ColorRect, 'color', Color.black, 1.0)
+		yield(t, "finished")
+		Firebase.Auth.check_auth_file()
+		$Splash.hide()

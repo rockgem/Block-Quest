@@ -16,7 +16,7 @@ const SAVE_PATH = 'user://data.json'
 
 var data = {
 		'name': '',
-		'gold': 43534,
+		'gold': 100,
 		'gem': 10,
 		'level': 1,
 		'exp': 0,

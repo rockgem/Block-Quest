@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://assets/bg_day.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/icons/loading.png" type="Texture" id=2]
@@ -6,13 +6,12 @@
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=4]
 [ext_resource path="res://assets/soundOnBtn.png" type="Texture" id=5]
 [ext_resource path="res://assets/soundOffBtn.png" type="Texture" id=6]
-[ext_resource path="res://assets/trophyIcon.png" type="Texture" id=7]
 [ext_resource path="res://reso/styles/button_normal.tres" type="StyleBox" id=8]
 [ext_resource path="res://scenes/ShopPanel.gd" type="Script" id=9]
-[ext_resource path="res://assets/coins.png" type="Texture" id=10]
 [ext_resource path="res://reso/styles/font48.tres" type="DynamicFont" id=11]
 [ext_resource path="res://assets/palms.png" type="Texture" id=12]
 [ext_resource path="res://assets/stone_1.png" type="Texture" id=13]
+[ext_resource path="res://reso/styles/panel_small_1.tres" type="StyleBox" id=14]
 [ext_resource path="res://actors/Card.tscn" type="PackedScene" id=15]
 [ext_resource path="res://actors/ChestDisplay.tscn" type="PackedScene" id=16]
 [ext_resource path="res://reso/styles/font24.tres" type="DynamicFont" id=17]
@@ -86,14 +85,14 @@ corner_radius_bottom_left = 16
 shadow_size = 6
 shadow_offset = Vector2( 0, 6 )
 
+[sub_resource type="StyleBoxEmpty" id=20]
+
 [sub_resource type="StyleBoxFlat" id=15]
-bg_color = Color( 0.172549, 0.0862745, 0.160784, 1 )
+bg_color = Color( 0.172549, 0.0862745, 0.160784, 0.521569 )
 corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
-
-[sub_resource type="StyleBoxEmpty" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=8]
 
@@ -111,10 +110,6 @@ VScrollBar/styles/grabber_highlight = SubResource( 9 )
 VScrollBar/styles/grabber_pressed = SubResource( 10 )
 VScrollBar/styles/scroll = SubResource( 11 )
 VScrollBar/styles/scroll_focus = SubResource( 12 )
-
-[sub_resource type="StyleBoxEmpty" id=14]
-
-[sub_resource type="StyleBoxEmpty" id=16]
 
 [sub_resource type="AtlasTexture" id=17]
 flags = 4
@@ -138,6 +133,10 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
+[sub_resource type="StyleBoxEmpty" id=21]
+
+[sub_resource type="StyleBoxEmpty" id=19]
+
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -151,6 +150,7 @@ margin_left = -265.0
 margin_top = -2284.0
 margin_right = 1899.0
 margin_bottom = 2284.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
@@ -167,6 +167,7 @@ margin_left = -244.0
 margin_top = -331.0
 margin_right = 500.0
 margin_bottom = 217.0
+mouse_filter = 2
 texture = ExtResource( 12 )
 expand = true
 stretch_mode = 6
@@ -180,6 +181,7 @@ margin_left = -456.0
 margin_top = 363.0
 margin_right = 114.0
 margin_bottom = 791.0
+mouse_filter = 2
 texture = ExtResource( 13 )
 expand = true
 stretch_mode = 6
@@ -193,106 +195,6 @@ margin_right = 616.0
 margin_bottom = -13.0
 custom_fonts/font = ExtResource( 17 )
 text = "userid"
-
-[node name="Coins" type="TextureRect" parent="."]
-visible = false
-margin_left = 37.0
-margin_top = 48.0
-margin_right = 333.0
-margin_bottom = 287.0
-texture = ExtResource( 10 )
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="Coins"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 106.0
-margin_top = -40.5
-margin_right = 602.0
-margin_bottom = 35.5
-custom_colors/font_color = Color( 0.647059, 0.596078, 0.156863, 1 )
-custom_fonts/font = ExtResource( 3 )
-text = "0"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -203.0
-margin_top = -212.0
-margin_right = 203.0
-margin_bottom = 243.0
-alignment = 1
-
-[node name="Play" type="Button" parent="VBoxContainer"]
-margin_top = 21.0
-margin_right = 406.0
-margin_bottom = 156.0
-custom_fonts/font = ExtResource( 3 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 8 )
-custom_styles/focus = ExtResource( 8 )
-custom_styles/normal = ExtResource( 8 )
-text = "Play"
-
-[node name="Roster" type="Button" parent="VBoxContainer"]
-margin_top = 160.0
-margin_right = 406.0
-margin_bottom = 295.0
-custom_fonts/font = ExtResource( 3 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 8 )
-custom_styles/focus = ExtResource( 8 )
-custom_styles/normal = ExtResource( 8 )
-text = "Roster"
-
-[node name="Shop" type="Button" parent="VBoxContainer"]
-margin_top = 299.0
-margin_right = 406.0
-margin_bottom = 434.0
-custom_fonts/font = ExtResource( 3 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 8 )
-custom_styles/focus = ExtResource( 8 )
-custom_styles/normal = ExtResource( 8 )
-text = "Buy Packs"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -343.0
-margin_top = 255.0
-margin_right = 343.0
-margin_bottom = 335.0
-custom_constants/separation = 32
-alignment = 1
-
-[node name="Sound" type="TextureButton" parent="HBoxContainer"]
-margin_left = 247.0
-margin_right = 327.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 80, 80 )
-toggle_mode = true
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 6 )
-expand = true
-stretch_mode = 5
-
-[node name="Rankings" type="TextureButton" parent="HBoxContainer"]
-margin_left = 359.0
-margin_right = 439.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 80, 80 )
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 7 )
-expand = true
-stretch_mode = 5
 
 [node name="HUD" type="Panel" parent="."]
 anchor_right = 1.0
@@ -393,17 +295,17 @@ margin_bottom = 32.5
 texture = ExtResource( 19 )
 
 [node name="Buttons" type="HBoxContainer" parent="."]
+anchor_top = 1.0
 anchor_right = 1.0
-margin_left = 10.0
-margin_top = 190.0
-margin_right = -10.0
-margin_bottom = 288.0
+anchor_bottom = 1.0
+margin_top = -161.0
+margin_bottom = -63.0
 custom_constants/separation = 34
 alignment = 1
 
 [node name="EditRoster" type="Button" parent="Buttons"]
-margin_left = 37.0
-margin_right = 135.0
+margin_left = 47.0
+margin_right = 145.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 98, 98 )
 size_flags_vertical = 6
@@ -415,8 +317,8 @@ icon = ExtResource( 22 )
 expand_icon = true
 
 [node name="Gallery" type="Button" parent="Buttons"]
-margin_left = 169.0
-margin_right = 267.0
+margin_left = 179.0
+margin_right = 277.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 98, 98 )
 size_flags_vertical = 6
@@ -428,8 +330,8 @@ icon = ExtResource( 23 )
 expand_icon = true
 
 [node name="Home" type="Button" parent="Buttons"]
-margin_left = 301.0
-margin_right = 399.0
+margin_left = 311.0
+margin_right = 409.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 98, 98 )
 size_flags_vertical = 6
@@ -441,8 +343,8 @@ icon = ExtResource( 24 )
 expand_icon = true
 
 [node name="Shop" type="Button" parent="Buttons"]
-margin_left = 433.0
-margin_right = 531.0
+margin_left = 443.0
+margin_right = 541.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 98, 98 )
 size_flags_vertical = 6
@@ -454,8 +356,8 @@ icon = ExtResource( 26 )
 expand_icon = true
 
 [node name="Options" type="Button" parent="Buttons"]
-margin_left = 565.0
-margin_right = 663.0
+margin_left = 575.0
+margin_right = 673.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 98, 98 )
 size_flags_vertical = 6
@@ -471,9 +373,10 @@ unique_name_in_owner = true
 self_modulate = Color( 1, 1, 1, 0.741176 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 300.0
-margin_bottom = 31.0
-custom_styles/panel = SubResource( 15 )
+margin_top = 197.0
+margin_bottom = -193.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 20 )
 tabs_visible = false
 
 [node name="Deck" type="Tabs" parent="Tab"]
@@ -483,7 +386,7 @@ anchor_bottom = 1.0
 [node name="DeckBuilder" type="Panel" parent="Tab/Deck"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 15 )
 script = ExtResource( 27 )
 
 [node name="CurrentEquipped" type="Label" parent="Tab/Deck/DeckBuilder"]
@@ -501,9 +404,9 @@ valign = 1
 clip_text = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Tab/Deck/DeckBuilder"]
-anchor_top = 0.072
+anchor_top = 0.0717451
 anchor_right = 1.0
-anchor_bottom = 0.800815
+anchor_bottom = 0.882141
 margin_left = 50.0
 margin_top = -0.0720062
 margin_right = -54.0
@@ -589,9 +492,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -323.0
-margin_top = -181.0
+margin_top = -69.0
 margin_right = 324.0
-margin_bottom = -107.0
+margin_bottom = 5.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -611,6 +514,37 @@ margin_top = -625.5
 margin_right = 360.0
 margin_bottom = 625.5
 rect_pivot_offset = Vector2( 360, 625 )
+custom_styles/panel = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="Tab/Deck/DeckBuilder/SelectPanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -323.5
+margin_top = 60.0
+margin_right = 323.5
+margin_bottom = 134.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+custom_fonts/font = ExtResource( 18 )
+text = "Select a card to put into deck:"
+autowrap = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Tab/Deck/DeckBuilder/SelectPanel"]
+anchor_top = 0.118
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 47.0
+margin_top = -0.618011
+margin_right = -47.0
+margin_bottom = -186.0
+scroll_horizontal_enabled = false
+
+[node name="AvailableRostersList" type="HFlowContainer" parent="Tab/Deck/DeckBuilder/SelectPanel/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 626.0
+size_flags_horizontal = 3
 
 [node name="CloseSelect" type="Button" parent="Tab/Deck/DeckBuilder/SelectPanel"]
 anchor_left = 0.5
@@ -628,20 +562,6 @@ custom_styles/focus = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
 text = "Close"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Tab/Deck/DeckBuilder/SelectPanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 47.0
-margin_top = 51.0
-margin_right = -47.0
-margin_bottom = -186.0
-scroll_horizontal_enabled = false
-
-[node name="AvailableRostersList" type="HFlowContainer" parent="Tab/Deck/DeckBuilder/SelectPanel/ScrollContainer"]
-unique_name_in_owner = true
-margin_right = 626.0
-size_flags_horizontal = 3
-
 [node name="Roster" type="Tabs" parent="Tab"]
 visible = false
 anchor_right = 1.0
@@ -650,13 +570,13 @@ anchor_bottom = 1.0
 [node name="Gallery" type="Panel" parent="Tab/Roster"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 15 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Tab/Roster/Gallery"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 44.0
-margin_top = 90.0
+margin_top = 143.0
 margin_right = -44.0
 margin_bottom = -308.0
 grow_horizontal = 2
@@ -667,6 +587,7 @@ theme = SubResource( 13 )
 scroll_horizontal_enabled = false
 
 [node name="GridContainer" type="GridContainer" parent="Tab/Roster/Gallery/ScrollContainer"]
+visible = false
 margin_right = 632.0
 margin_bottom = 616.0
 custom_constants/vseparation = 16
@@ -698,6 +619,17 @@ margin_right = 416.0
 margin_bottom = 616.0
 char_id = "char_magi"
 
+[node name="Label" type="Label" parent="Tab/Roster/Gallery"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -127.0
+margin_top = 41.0
+margin_right = 127.0
+margin_bottom = 98.0
+custom_fonts/font = ExtResource( 11 )
+text = "Gallery"
+align = 1
+
 [node name="Shop" type="Tabs" parent="Tab"]
 visible = false
 anchor_right = 1.0
@@ -707,30 +639,38 @@ anchor_bottom = 1.0
 unique_name_in_owner = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 18.0
-margin_top = 24.0
-margin_right = -18.0
-margin_bottom = -52.0
-custom_styles/panel = SubResource( 16 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 15 )
 script = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="Tab/Shop/ShopPanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -127.0
+margin_top = 41.0
+margin_right = 127.0
+margin_bottom = 98.0
+custom_fonts/font = ExtResource( 11 )
+text = "Shop"
+align = 1
 
 [node name="GridContainer" type="VBoxContainer" parent="Tab/Shop/ShopPanel"]
 anchor_right = 1.0
 margin_left = 30.0
-margin_top = 91.0
+margin_top = 134.0
 margin_right = -30.0
 margin_bottom = 804.0
 custom_constants/separation = 6
 
 [node name="Panel" parent="Tab/Shop/ShopPanel/GridContainer" instance=ExtResource( 16 )]
-margin_left = 74.0
-margin_right = 550.0
+margin_left = 92.0
+margin_right = 568.0
 price = 30
 
 [node name="Panel2" parent="Tab/Shop/ShopPanel/GridContainer" instance=ExtResource( 16 )]
-margin_left = 74.0
+margin_left = 92.0
 margin_top = 199.0
-margin_right = 550.0
+margin_right = 568.0
 margin_bottom = 392.0
 price = 100
 
@@ -748,6 +688,8 @@ margin_left = -289.0
 margin_top = -496.5
 margin_right = 279.0
 margin_bottom = 220.5
+mouse_filter = 1
+custom_styles/panel = ExtResource( 14 )
 
 [node name="Label" type="Label" parent="Tab/Shop/ShopPanel/PopOnBuy"]
 anchor_left = 0.5
@@ -792,6 +734,7 @@ visible = false
 self_modulate = Color( 0.235294, 0.235294, 0.235294, 0.627451 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 
 [node name="LoadingIndicator" type="TextureRect" parent="Tab/Shop/ColorRect"]
 anchor_left = 0.5
@@ -802,7 +745,6 @@ margin_left = -70.0
 margin_top = -153.0
 margin_right = 70.0
 margin_bottom = -13.0
-rect_rotation = 249.68
 rect_pivot_offset = Vector2( 70, 70 )
 texture = ExtResource( 2 )
 expand = true
@@ -817,6 +759,36 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="Panel" type="Panel" parent="Tab/Options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 21 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tab/Options/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -91.5
+margin_right = 45.0
+margin_bottom = 92.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 25
+
+[node name="Sounds" type="TextureButton" parent="Tab/Options/Panel/VBoxContainer"]
+margin_top = 47.0
+margin_right = 90.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 90, 90 )
+size_flags_horizontal = 6
+size_flags_vertical = 6
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+expand = true
+
 [node name="Home" type="Tabs" parent="Tab"]
 visible = false
 anchor_right = 1.0
@@ -825,18 +797,42 @@ anchor_bottom = 1.0
 [node name="HomePanel" type="Panel" parent="Tab/Home"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_styles/panel = SubResource( 19 )
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Roster" to="." method="_on_Roster_pressed"]
-[connection signal="pressed" from="VBoxContainer/Shop" to="." method="_on_Shop_pressed"]
-[connection signal="toggled" from="HBoxContainer/Sound" to="." method="_on_Sound_toggled"]
+[node name="Label" type="Label" parent="Tab/Home/HomePanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -127.0
+margin_top = 41.0
+margin_right = 127.0
+margin_bottom = 98.0
+custom_fonts/font = ExtResource( 11 )
+text = "Home"
+align = 1
+
+[node name="Play" type="Button" parent="Tab/Home/HomePanel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -175.0
+margin_top = 113.0
+margin_right = 175.0
+margin_bottom = 229.0
+custom_fonts/font = ExtResource( 11 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
+text = "Play"
+
 [connection signal="pressed" from="Buttons/EditRoster" to="." method="tab_change" binds= [ 0 ]]
 [connection signal="pressed" from="Buttons/Gallery" to="." method="tab_change" binds= [ 1 ]]
-[connection signal="pressed" from="Buttons/Home" to="." method="tab_change" binds= [ 4 ]]
 [connection signal="pressed" from="Buttons/Home" to="." method="_on_Home_pressed"]
+[connection signal="pressed" from="Buttons/Home" to="." method="tab_change" binds= [ 4 ]]
 [connection signal="pressed" from="Buttons/Shop" to="." method="tab_change" binds= [ 2 ]]
 [connection signal="pressed" from="Buttons/Options" to="." method="tab_change" binds= [ 3 ]]
 [connection signal="pressed" from="Tab/Deck/DeckBuilder/SelectPanel/CloseSelect" to="Tab/Deck/DeckBuilder" method="_on_CloseSelect_pressed"]
 [connection signal="pressed" from="Tab/Shop/ShopPanel/PopOnBuy/Ok" to="Tab/Shop/ShopPanel" method="_on_Ok_pressed"]
+[connection signal="toggled" from="Tab/Options/Panel/VBoxContainer/Sounds" to="." method="_on_Sounds_toggled"]
+[connection signal="pressed" from="Tab/Home/HomePanel/Play" to="." method="_on_Play_pressed"]
 
 [editable path="Tab/Shop/ShopPanel/GridContainer/Panel2"]

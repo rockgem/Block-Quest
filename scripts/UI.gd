@@ -214,6 +214,9 @@ func on_block_delete():
 func on_line_deleted():
 	score += 100
 	ManagerGame.data['gold'] += 100
+	
+	var task: FirestoreTask = ManagerGame.firestore_collection.update(Firebase.Auth.auth['localid'], ManagerGame.data)
+	
 
 
 func _on_Timer_timeout():

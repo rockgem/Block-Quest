@@ -12,6 +12,9 @@ func _ready():
 	Firebase.Auth.get_user_data()
 	
 	get_node('%Tab').current_tab = 4
+	
+	for child in get_node('%ShopPanel').get_node("GridContainer").get_children():
+		child.connect('clicked', self, 'on_chest_buy')
 
 
 func on_userdata_received(userdata):
@@ -96,3 +99,9 @@ func _on_CloseRoster_pressed():
 func _on_Home_pressed():
 	return
 	get_node('%Tab').hide()
+
+
+func _on_Sounds_toggled(button_pressed):
+	AudioServer.set_bus_mute(0, button_pressed)
+	
+	$"/root/Sfx".get_node('Click1').play()

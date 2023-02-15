@@ -2,7 +2,7 @@ extends Panel
 
 export(int) var price = 1000
 
-
+signal clicked
 
 func _ready():
 	$Price.text = str(price)
@@ -18,6 +18,9 @@ func _ready():
 
 
 func _on_Buy_pressed():
+	
+	if ManagerGame.data['gold'] < price:
+		return
 	
 	ManagerGame.data['gold'] -= price
 	
@@ -40,6 +43,11 @@ func _on_Buy_pressed():
 		ManagerGame.data['rosters'].append(new_roster)
 	
 	
-	
-	ManagerGame.emit_signal("chest_buy", data)
+	emit_signal('clicked', data)
+#	ManagerGame.emit_signal("chest_buy", data)
 	ManagerGame.emit_signal("coins_changed")
+
+
+func _on_ChestDisplay_gui_input(event):
+	if event is InputEventScreenTouch and !event.pressed:
+		_on_Buy_pressed()

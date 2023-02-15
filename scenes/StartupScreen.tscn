@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/bg_day.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/palms.png" type="Texture" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://reso/styles/font24.tres" type="DynamicFont" id=8]
 [ext_resource path="res://assets/icons/password.png" type="Texture" id=9]
 [ext_resource path="res://reso/styles/button_normal.tres" type="StyleBox" id=10]
+[ext_resource path="res://reso/styles/font32.tres" type="DynamicFont" id=11]
+[ext_resource path="res://assets/bg_night.jpg" type="Texture" id=12]
+[ext_resource path="res://reso/styles/font64.tres" type="DynamicFont" id=13]
+[ext_resource path="res://assets/Untitled.png" type="Texture" id=14]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.968627, 0.74902, 1, 0.894118 )
@@ -44,6 +48,17 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 360.0 ]
 }
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.952941, 0.952941, 0.952941, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 16.0
+expand_margin_right = 16.0
+expand_margin_top = 16.0
+expand_margin_bottom = 16.0
 
 [node name="StartupScreen" type="Control"]
 anchor_right = 1.0
@@ -244,8 +259,94 @@ text = "ERROR"
 align = 1
 autowrap = true
 
+[node name="Splash" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="Splash"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -263.0
+margin_top = -2391.0
+margin_right = 2045.0
+margin_bottom = 2481.0
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Splash"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -194.0
+margin_top = -288.0
+margin_right = 194.0
+margin_bottom = -72.0
+custom_constants/separation = 51
+
+[node name="Label" type="Label" parent="Splash/VBoxContainer"]
+margin_right = 388.0
+margin_bottom = 38.0
+custom_colors/font_color = Color( 0.345098, 0.345098, 0.345098, 1 )
+custom_fonts/font = ExtResource( 11 )
+custom_styles/normal = SubResource( 4 )
+text = "Login Anonymous"
+
+[node name="Label2" type="Label" parent="Splash/VBoxContainer"]
+margin_top = 89.0
+margin_right = 388.0
+margin_bottom = 127.0
+custom_colors/font_color = Color( 0.345098, 0.345098, 0.345098, 1 )
+custom_fonts/font = ExtResource( 11 )
+custom_styles/normal = SubResource( 4 )
+text = "Login with Google"
+
+[node name="Label3" type="Label" parent="Splash/VBoxContainer"]
+margin_top = 178.0
+margin_right = 388.0
+margin_bottom = 216.0
+custom_colors/font_color = Color( 0.345098, 0.345098, 0.345098, 1 )
+custom_fonts/font = ExtResource( 11 )
+custom_styles/normal = SubResource( 4 )
+text = "Login Email"
+
+[node name="Label" type="Label" parent="Splash"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -194.0
+margin_top = 305.0
+margin_right = 194.0
+margin_bottom = 381.0
+custom_colors/font_color = Color( 0.713726, 0.713726, 0.713726, 1 )
+custom_fonts/font = ExtResource( 13 )
+text = "Tap to play"
+align = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Splash"]
+margin_left = -109.0
+margin_top = 356.0
+margin_right = 853.0
+margin_bottom = 1318.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="Splash"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [connection signal="pressed" from="LoginPanel/VBoxContainer2/Hbox/Anon" to="." method="_on_Anon_pressed"]
 [connection signal="pressed" from="LoginPanel/VBoxContainer2/Hbox/Google" to="." method="_on_Google_pressed"]
 [connection signal="pressed" from="LoginPanel/VBoxContainer2/Hbox/EmailPass" to="." method="_on_EmailPass_pressed"]
 [connection signal="pressed" from="SignupPanel/VBoxContainer2/VBoxContainer/Create" to="." method="_on_Create_pressed"]
 [connection signal="pressed" from="SignupPanel/VBoxContainer2/VBoxContainer/Cancel" to="." method="_on_Cancel_pressed"]
+[connection signal="gui_input" from="Splash" to="." method="_on_Splash_gui_input"]

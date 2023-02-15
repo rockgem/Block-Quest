@@ -40,6 +40,7 @@ patch_margin_right = 42
 patch_margin_bottom = 54
 
 [node name="Halo" type="NinePatchRect" parent="."]
+visible = false
 modulate = Color( 0.952941, 0.929412, 0.392157, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -55,7 +56,6 @@ patch_margin_right = 68
 patch_margin_bottom = 98
 
 [node name="Add" type="TextureRect" parent="."]
-visible = false
 self_modulate = Color( 1, 1, 1, 0.584314 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -83,6 +83,7 @@ stretch_mode = 6
 
 [node name="Icon" type="TextureRect" parent="."]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 27.0
@@ -95,6 +96,7 @@ stretch_mode = 6
 
 [node name="Level" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 margin_left = 26.0
 margin_top = 17.0
 margin_right = 224.0
@@ -109,6 +111,7 @@ clip_text = true
 
 [node name="Name" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -129,6 +132,7 @@ clip_text = true
 
 [node name="EXP" type="ProgressBar" parent="."]
 unique_name_in_owner = true
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0

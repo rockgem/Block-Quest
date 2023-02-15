@@ -381,7 +381,6 @@ custom_styles/panel = SubResource( 20 )
 tabs_visible = false
 
 [node name="Deck" type="Tabs" parent="Tab"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -766,6 +765,7 @@ texture_pressed = ExtResource( 6 )
 expand = true
 
 [node name="Home" type="Tabs" parent="Tab"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 

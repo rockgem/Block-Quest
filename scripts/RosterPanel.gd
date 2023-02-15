@@ -1,6 +1,11 @@
 extends Panel
 
 
+
+
+
+
+
 func _ready():
 	for id in ManagerGame.rosters_data:
 		var display = load("res://actors/Card.tscn").instance()

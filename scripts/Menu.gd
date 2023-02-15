@@ -13,8 +13,8 @@ func _ready():
 	
 	get_node('%Tab').current_tab = 4
 	
-	for child in get_node('%ShopPanel').get_node("GridContainer").get_children():
-		child.connect('clicked', self, 'on_chest_buy')
+#	for child in get_node('%ShopPanel').get_node("GridContainer").get_children():
+#		child.connect('clicked', self, 'on_chest_buy')
 
 
 func on_userdata_received(userdata):

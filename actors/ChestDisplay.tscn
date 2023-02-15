@@ -87,5 +87,4 @@ text = "Buy"
 repeat = true
 playback/repeat = true
 
-[connection signal="gui_input" from="." to="." method="_on_ChestDisplay_gui_input"]
 [connection signal="pressed" from="Buy" to="." method="_on_Buy_pressed"]

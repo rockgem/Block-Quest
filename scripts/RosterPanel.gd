@@ -2,7 +2,14 @@ extends Panel
 
 
 func _ready():
-	
+	for id in ManagerGame.rosters_data:
+		var display = load("res://actors/Card.tscn").instance()
+		display.char_id = id
+		
+		get_node('%RostersList').add_child(display)
+
+
+func refresh_rosters_availability():
 	for card in get_node('%RostersList').get_children():
 		card.set_status(true)
 	
@@ -15,9 +22,3 @@ func _ready():
 	
 	for card in temp:
 		card.set_status(false)
-	
-	
-#	for hero in ManagerGame.rosters_data.keys():
-#		var display = load("res://actors/RosterDisplay.tscn").instance()
-#		display.texture = load("res://reso/heroes/%s.png" % hero)
-#		get_node('%List').add_child(display)

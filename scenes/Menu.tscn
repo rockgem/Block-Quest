@@ -596,31 +596,6 @@ custom_constants/vseparation = 16
 custom_constants/hseparation = 16
 columns = 3
 
-[node name="Card" parent="Tab/Roster/Gallery/ScrollContainer/RostersList" instance=ExtResource( 15 )]
-char_id = "char_mika"
-
-[node name="Card2" parent="Tab/Roster/Gallery/ScrollContainer/RostersList" instance=ExtResource( 15 )]
-margin_left = 216.0
-margin_right = 416.0
-char_id = "char_simone"
-
-[node name="Card3" parent="Tab/Roster/Gallery/ScrollContainer/RostersList" instance=ExtResource( 15 )]
-margin_left = 432.0
-margin_right = 632.0
-char_id = "char_buzz"
-
-[node name="Card4" parent="Tab/Roster/Gallery/ScrollContainer/RostersList" instance=ExtResource( 15 )]
-margin_top = 316.0
-margin_bottom = 616.0
-char_id = "char_omo"
-
-[node name="Card5" parent="Tab/Roster/Gallery/ScrollContainer/RostersList" instance=ExtResource( 15 )]
-margin_left = 216.0
-margin_top = 316.0
-margin_right = 416.0
-margin_bottom = 616.0
-char_id = "char_magi"
-
 [node name="Label" type="Label" parent="Tab/Roster/Gallery"]
 anchor_left = 0.5
 anchor_right = 0.5

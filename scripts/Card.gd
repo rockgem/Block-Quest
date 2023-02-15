@@ -4,7 +4,7 @@ extends Panel
 signal clicked(own)
 
 export(String) var char_id: String 
-export(Dictionary) var data = {}
+export(Dictionary) var data = {}  # i think this can also have no export type bro im not realy sure lmao
 
 
 

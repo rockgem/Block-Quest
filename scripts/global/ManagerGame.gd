@@ -25,7 +25,7 @@ var data = {
 		'deck_chars': [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
 	}
 
-var rosters_data = {}
+var rosters_data: Dictionary = {}
 
 onready var firestore_collection : FirestoreCollection = Firebase.Firestore.collection('users')
 

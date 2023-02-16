@@ -64,6 +64,9 @@ func tab_change(idx: int):
 
 
 func _on_Play_pressed():
+	var t = get_tree().create_tween()
+	t.tween_property(self, 'modulate', Color.black, 1.0)
+	yield(t, 'finished')
 	get_tree().change_scene("res://scenes/Main.tscn")
 	$"/root/Sfx".get_node('Click1').play()
 

@@ -16,8 +16,6 @@ func _ready():
 	$Tween.start()
 
 
-
-
 func _on_Buy_pressed():
 	
 	if ManagerGame.data['gold'] < price:

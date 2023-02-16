@@ -212,6 +212,7 @@ func on_block_delete():
 
 
 func on_line_deleted():
+	$Burst.emitting = true
 	score += 100
 	ManagerGame.data['gold'] += 100
 	

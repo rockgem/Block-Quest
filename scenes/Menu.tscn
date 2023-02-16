@@ -212,7 +212,7 @@ margin_bottom = 4.0
 custom_constants/separation = 26
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/HBoxContainer"]
-margin_right = 212.0
+margin_right = 236.0
 margin_bottom = 103.0
 size_flags_horizontal = 3
 custom_constants/separation = 23
@@ -221,7 +221,7 @@ alignment = 1
 [node name="Level" type="Label" parent="HUD/HBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 margin_top = 32.0
-margin_right = 212.0
+margin_right = 236.0
 margin_bottom = 70.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 18 )
@@ -239,8 +239,8 @@ margin_bottom = 37.0
 texture = ExtResource( 21 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HUD/HBoxContainer"]
-margin_left = 238.0
-margin_right = 450.0
+margin_left = 262.0
+margin_right = 498.0
 margin_bottom = 103.0
 size_flags_horizontal = 3
 custom_constants/separation = 23
@@ -249,7 +249,7 @@ alignment = 1
 [node name="Gold" type="Label" parent="HUD/HBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 margin_top = 32.0
-margin_right = 212.0
+margin_right = 236.0
 margin_bottom = 70.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 18 )
@@ -267,8 +267,8 @@ margin_bottom = 33.0
 texture = ExtResource( 20 )
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HUD/HBoxContainer"]
-margin_left = 476.0
-margin_right = 688.0
+margin_left = 524.0
+margin_right = 760.0
 margin_bottom = 103.0
 size_flags_horizontal = 3
 custom_constants/separation = 23
@@ -277,7 +277,7 @@ alignment = 1
 [node name="EXP" type="Label" parent="HUD/HBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
 margin_top = 32.0
-margin_right = 212.0
+margin_right = 236.0
 margin_bottom = 70.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 18 )
@@ -304,8 +304,8 @@ custom_constants/separation = 34
 alignment = 1
 
 [node name="EditRoster" type="Button" parent="Buttons"]
-margin_left = 47.0
-margin_right = 145.0
+margin_left = 83.0
+margin_right = 181.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 98, 98 )
 size_flags_vertical = 6
@@ -317,8 +317,8 @@ icon = ExtResource( 22 )
 expand_icon = true
 
 [node name="Gallery" type="Button" parent="Buttons"]
-margin_left = 179.0
-margin_right = 277.0
+margin_left = 215.0
+margin_right = 313.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 98, 98 )
 size_flags_vertical = 6
@@ -330,8 +330,8 @@ icon = ExtResource( 23 )
 expand_icon = true
 
 [node name="Home" type="Button" parent="Buttons"]
-margin_left = 311.0
-margin_right = 409.0
+margin_left = 347.0
+margin_right = 445.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 98, 98 )
 size_flags_vertical = 6
@@ -343,8 +343,8 @@ icon = ExtResource( 24 )
 expand_icon = true
 
 [node name="Shop" type="Button" parent="Buttons"]
-margin_left = 443.0
-margin_right = 541.0
+margin_left = 479.0
+margin_right = 577.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 98, 98 )
 size_flags_vertical = 6
@@ -356,8 +356,8 @@ icon = ExtResource( 26 )
 expand_icon = true
 
 [node name="Options" type="Button" parent="Buttons"]
-margin_left = 575.0
-margin_right = 673.0
+margin_left = 611.0
+margin_right = 709.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 98, 98 )
 size_flags_vertical = 6
@@ -380,7 +380,6 @@ custom_styles/panel = SubResource( 20 )
 tabs_visible = false
 
 [node name="Deck" type="Tabs" parent="Tab"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -405,13 +404,16 @@ valign = 1
 clip_text = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Tab/Deck/DeckBuilder"]
-anchor_top = 0.0717451
-anchor_right = 1.0
-anchor_bottom = 0.882141
+anchor_left = 0.0454545
+anchor_top = 0.071819
+anchor_right = 0.954545
+anchor_bottom = 0.882074
 margin_left = 50.0
 margin_top = -0.0720062
 margin_right = -54.0
 margin_bottom = 42.181
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource( 13 )
@@ -744,6 +746,7 @@ autoplay = "anim"
 anims/anim = SubResource( 18 )
 
 [node name="Options" type="Tabs" parent="Tab"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 

@@ -42,7 +42,7 @@ func _ready():
 		new_arr.append(slot)
 		
 		count += 1
-		if count >= 8:
+		if count >= 9:
 			var temp = new_arr.duplicate()
 			hor_slots.append(temp)
 			new_arr.clear()

@@ -177,8 +177,8 @@ Sfx="*res://sounds/sfx/SFX.tscn"
 
 [display]
 
-window/size/width=720
-window/size/height=1520
+window/size/width=792
+window/size/height=1672
 window/size/test_width=360
 window/size/test_height=760
 window/dpi/allow_hidpi=true

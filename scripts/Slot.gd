@@ -19,6 +19,7 @@ func occupy_slot():
 
 func clear_slot():
 	has_piece = false
+	$Burst.emitting = true
 	$Icon.hide()
 
 
